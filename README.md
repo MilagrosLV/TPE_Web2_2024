@@ -9,3 +9,4 @@ En futuras entregas, se busca desarrollar la interactividad del usuario al regis
 
 ### Diagrama
 
+![Diagrama TPE](https://github.com/user-attachments/assets/141d201f-9eed-4a42-b15e-521ee9bdb7a0)
