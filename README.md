@@ -7,7 +7,5 @@ Trabajo Practico Especial.
 El objetivo de la página se centra, en facilitar el enlistamiento de los productos elegidos por el cliente para generar su compra.
 En futuras entregas, se busca desarrollar la interactividad del usuario al registrarse en la plataforma, tal como la calificación de su experiencia. Al mismo tiempo, habrán usuarios con acceso administrativo con una interfaz web para realizar el CRUD.
 
-### Tablas
-1. carrito.
-2. producto.
-3. usuario.
+### Diagrama
+
