@@ -6,7 +6,7 @@
     <title>Productos</title>
 </head>
 <body>
-    <h1>Productos por catwgoría</h1>
+    <h1>Productos por categoría</h1>
 
     <ul>
         <li><a href="router.php?Categoria=Alimentos">Alimentos</a></li>

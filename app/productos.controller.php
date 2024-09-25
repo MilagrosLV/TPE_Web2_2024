@@ -3,7 +3,7 @@ require_once './productos.view.php';
 require_once './productos.model.php';
 
 function showProductos(){
-    //Verificar datos obligatorios
+    //Verificar datos obligatorios y valida la entrada de usuarios
     if ((!isset($_GET['Categoria'])) || empty($_GET['Categoria'])) {
         mostrarError('Categoría no especificada');
         return;

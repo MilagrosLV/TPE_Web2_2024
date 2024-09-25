@@ -7,6 +7,8 @@
 </head>
 <body>
     <?php
+    require_once './productos.controller.php';
+
     function mostrarError($error) {
         echo "<h2>Error. $error.</h2>";
     }

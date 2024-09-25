@@ -1,5 +1,5 @@
 <?php
-require_once './productos.controller.php';
+require_once './app/productos.controller.php';
 
 
 showProductos();
