@@ -1,6 +1,13 @@
 <?php
-require_once './productos.view.php';
-require_once './productos.model.php';
+require_once 'app/productos_view.php';
+require_once 'app/productos_model.php';
+
+
+function mostrarDB(){
+    $productos = getProductos();
+    mostrarHome($productos);
+   
+}
 
 function showProductos(){
     //Verificar datos obligatorios y valida la entrada de usuarios
