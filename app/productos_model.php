@@ -2,7 +2,7 @@
 require_once 'app/productos_controller.php';
 
 function conexionDb(){
-    $db = new PDO('mysql:host=localhost;' . 'dbname=db_supermercado;charset=utf8', 'root', '');
+$db = new PDO('mysql:host=localhost;' . 'dbname=db_supermercado;charset=utf8', 'root', '');
    return $db;
 }
 
