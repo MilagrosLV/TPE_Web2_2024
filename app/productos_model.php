@@ -27,4 +27,13 @@ function insertarProducto($nombre, $precio, $categoria){
     $db= conexionDb();
     $query = $db->prepare('INSERT INTO productos (nombre, precio, categoria) VALUES (?,?,?)');
     $query->execute([$nombre, $precio, $categoria]);
+
+    return $db->lastInsertId();
 }
+
+function eliminarProducto($id){
+    $db = conexionDb();
+    $query = $db->prepare('DELETE FROM `productos` WHERE id=?');
+    $query->execute([$id]);
+}
+

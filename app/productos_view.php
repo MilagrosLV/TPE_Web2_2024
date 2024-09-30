@@ -22,16 +22,23 @@
             </table>";
     <?php
         foreach($productos as $producto){
-            echo"
+            ?>  
                 <table>
                 <thead>
-                    <tr>
+                    <tr> 
+                    <?php echo"
                         <tb>$producto->nombre</tb>
                         <tb>$producto->precio</tb>
                         <tb>$producto->categoria</tb>
-                    </tr>
+                    </tr>";
+                    ?>
+                    <div class="actions">
+                        <a href="modificar/<?php echo $producto->id ?>" class="btn btn-primary" >Modificar</a>
+                        <a href="eliminar/<?php echo $producto->id ?>" class="btn btn-danger" >Eliminar</a>
+                    </div>
                 </thead>
-                </table>";   
+                </table>;   
+                <?php 
         }
         require 'templates/footer.php';
     }

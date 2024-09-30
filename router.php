@@ -34,7 +34,8 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
 
     case 'eliminar':
         removerPdroducto($params[1]);
-
+        break;
+        
     case 'modificar':
         modificarProducto($params[1]);
     default: 

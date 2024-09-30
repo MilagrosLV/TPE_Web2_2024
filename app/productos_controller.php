@@ -43,8 +43,17 @@ function addProducto(){
     $precio = $_POST['precio'];
     $categoria = $_POST['categoria'];
 
+    $id = insertarProducto($nombre, $precio, $categoria);
 
-
-    insertarProducto($nombre, $precio, $categoria);
-
+    if ($id) {
+        header('Location: ' . BASE_URL);
+    } else {
+        echo"error al insertar la tarea";
+    }
 }
+
+function  removerPdroducto($id){
+    eliminarProducto($id);
+    header('Location: ' . BASE_URL);
+}
+
