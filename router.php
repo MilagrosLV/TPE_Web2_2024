@@ -6,21 +6,21 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 
 // el router va a leer la action desde el paramtro "action"
 
-$action = 'home'; // accion por defecto
+$action = 'hogar'; // accion por defecto
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
 // listar    ->        mostrarProductos();
 // listar individual ->mostrarProducto($id)
-// agregar   ->        addProducto();
-// eliminar/:ID  ->    removerPdroducto($id); 
+// agregar   ->        agregar1Producto();
+// eliminar/:ID  ->    quitarProducto($id); 
 // modificar/:ID  ->   modificarProducto($id);
 
 $params = explode('/', $action);
 
 switch ($params[0]) { // en la primer posicion tengo la accion real
-    case 'home':
+    case 'hogar':
         mostrarDB(); // muestra todas los productos
         break;
 
@@ -29,11 +29,11 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         break;
 
     case 'agregar':
-        addProducto();
+        agregar1Producto();
         break;
 
     case 'eliminar':
-        removerPdroducto($params[1]);
+        quitarProducto($params[1]);
         break;
         
     case 'modificar':
