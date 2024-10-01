@@ -5,7 +5,7 @@ require_once 'app/productos_model.php';
 
 function mostrarDB(){
     $productos = getProductos();
-    mostrarHome($productos);
+    mostrarHogar($productos);
    
 }
 
