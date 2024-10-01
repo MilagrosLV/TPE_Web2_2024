@@ -27,6 +27,7 @@
       <label for="categoria" class="form-label">Categoria</label>
       <input type="text" class="form-control" name="categoria">
     </div>
+    
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
