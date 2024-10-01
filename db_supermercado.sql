@@ -39,7 +39,7 @@ CREATE TABLE `carrito` (
 --
 
 INSERT INTO `carrito` (`id`, `comprador`, `id_producto`, `Fecha`) VALUES
-(5, 'marina', 1, '2024-09-12');
+(5, 'Marina', 1, '2024-09-12');
 
 -- --------------------------------------------------------
 
