@@ -1,5 +1,6 @@
 <?php
-require_once './app/productos_controller.php';
+//require_once './app/productos_controller.php';
+//require_once './app/productos_controller.php';
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -13,10 +14,10 @@ if (!empty( $_GET['action'])) {
 
 /*TABLA DE ROUTEO:
     ACCION              
-    listar            ->    mostrarProductos();
-    listar individual ->    mostrarProducto($id)
-    agregar           ->    agregar1Producto();
-    eliminar/:ID      ->    quitarProducto($id); 
+    listar global     ->    mostrarProductos();
+    listar individual ->    mostrarProductos($id)
+    agregar           ->    agregarProducto();
+    eliminar/:ID      ->    removerProducto($id); 
     modificar/:ID     ->    modificarProducto($id);
 */
 
@@ -28,20 +29,22 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         break;
 
     case 'producto':
-        mostrarProducto($params[1]); // muestra un producto
+        mostrarProductos($params[1]); // muestra un producto
         break;
 
     case 'agregar':
-        agregar1Producto();
+        agregarProducto();
         break;
 
     case 'eliminar':
-        quitarProducto($params[1]);
+        removerProducto($params[1]);
         break;
         
-    case 'modificar':
-        modificarProducto($params[1]);
+    /*case 'modificar':
+        modificarProductos($params[1]);
+        break;
+        */
     default: 
-        show404();
+        mostrarError();
         break;
 }

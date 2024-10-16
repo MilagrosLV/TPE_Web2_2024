@@ -4,12 +4,12 @@ require_once 'app/productos_model.php';
 
 
 function mostrarDB(){
-    $productos = getProductos();
+    $productos = buscarProductos();
     mostrarHogar($productos);
    
 }
 
-function showProductos(){
+function mostrarProductos(){
     //Verificar datos obligatorios y valida la entrada de usuarios
     if ((!isset($_GET['Categoria'])) || empty($_GET['Categoria'])) {
         mostrarError('Categoría no especificada');
@@ -25,7 +25,7 @@ function showProductos(){
     mostrarProductos($productos, $categoria);
 }
 
-function addProducto(){
+function agregarProducto(){
 
     if ((!isset($_POST['nombre']))) {
         mostrarError('Nombre no especificado');
@@ -52,8 +52,11 @@ function addProducto(){
     }
 }
 
-function  removerPdroducto($id){
+function  removerProducto($id){
     eliminarProducto($id);
     header('Location: ' . BASE_URL);
 }
 
+function mostrarError (){
+    echo "Error";
+}
