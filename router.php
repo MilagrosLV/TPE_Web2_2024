@@ -5,11 +5,11 @@
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-// el router va a leer la action desde el paramtro "action"
+// el router va a leer la accion desde el paramtro "accion"
 
-$action = 'hogar'; // accion por defecto
-if (!empty( $_GET['action'])) {
-    $action = $_GET['action'];
+$accion = 'hogar'; // accion por defecto
+if ((isset( $_GET['accion'])) && (!empty( $_GET['accion']))) {
+    $accion = $_GET['accion'];
 }
 
 /*TABLA DE ROUTEO:
@@ -21,15 +21,19 @@ if (!empty( $_GET['action'])) {
     modificar/:ID     ->    modificarProducto($id);
 */
 
-$params = explode('/', $action);
+$params = explode('/', $accion);
 
 switch ($params[0]) { // en la primer posicion tengo la accion real
     case 'hogar':
-        mostrarDB(); // muestra todas los productos
+        mostrarProductos(); // muestra todas los productos
         break;
 
     case 'producto':
-        mostrarProductos($params[1]); // muestra un producto
+        if (isset($params[1])) {
+            mostrarUnProducto($params[1]); // muestra un producto
+        } else {
+            mostrarProductos(); // muestra todas los productos
+        }
         break;
 
     case 'agregar':

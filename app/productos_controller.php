@@ -3,18 +3,18 @@ require_once 'app/productos_view.php';
 require_once 'app/productos_model.php';
 
 
-function mostrarDB(){
+function mostrarProductos(){
     $productos = buscarProductos();
     mostrarHogar($productos);
    
 }
 
-function mostrarProductos(){
+function mostrarProductosCategoria($productos, $categoria){
     //Verificar datos obligatorios y valida la entrada de usuarios
     if ((!isset($_GET['Categoria'])) || empty($_GET['Categoria'])) {
         mostrarError('Categoría no especificada');
         return;
-    }
+    } 
 
     //Obtiene la categoria enciada por GET
     $categoria = $_GET['Categoria'];
@@ -22,7 +22,20 @@ function mostrarProductos(){
     //Llama al model para obtener los productos
     $productos = obtenerProductosPorCategoria($categoria);
 
-    mostrarProductos($productos, $categoria);
+    mostrarProductosCategoria($productos, $categoria);
+}
+
+function mostrarUnProducto($producto){
+    //Verificar datos obligatorios y valida la entrada de usuarios
+    if ((!isset($_GET['producto'])) || empty($_GET['producto'])) {
+        mostrarError('Producto no especificado');
+        return;
+    }
+
+    //Llama al model para obtener los productos
+    //$producto = buscarProducto($producto);
+
+    mostrarUnProducto($producto);
 }
 
 function agregarProducto(){

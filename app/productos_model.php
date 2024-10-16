@@ -14,6 +14,13 @@ function buscarProductos(){
     return $productos;
 }
 
+/*function buscarProducto($nombre){
+    $db = coneccionDb();
+    $query = $db->prepare("SELECT * FROM productos WHERE nombre = ?");
+    $query->execute([$nombre]);
+    return $nombre;
+}*/
+
 function obtenerProductosPorCategoria($categoria){
     $db = coneccionDb();
     $query = $db->prepare('SELECT * FROM productos WHERE Categoria = ?');
