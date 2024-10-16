@@ -47,7 +47,7 @@
     ?> 
 
     <?php
-    function mostrarProductos($productos, $categoria){
+    function mostrarProductoCategoria($productos, $categoria){
         echo "<h1>Lista por Categoría: $categoria</h1>";
         echo "<a href='./index.php'>Volver</a>";
         //Imprime la tabla de Productos

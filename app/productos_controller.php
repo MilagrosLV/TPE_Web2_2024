@@ -70,6 +70,3 @@ function  removerProducto($id){
     header('Location: ' . BASE_URL);
 }
 
-function mostrarError (){
-    echo "Error";
-}
