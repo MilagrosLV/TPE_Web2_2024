@@ -11,11 +11,14 @@ if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// listar    ->        mostrarProductos();
-// listar individual ->mostrarProducto($id)
-// agregar   ->        agregar1Producto();
-// eliminar/:ID  ->    quitarProducto($id); 
-// modificar/:ID  ->   modificarProducto($id);
+/*TABLA DE ROUTEO:
+    ACCION              
+    listar            ->    mostrarProductos();
+    listar individual ->    mostrarProducto($id)
+    agregar           ->    agregar1Producto();
+    eliminar/:ID      ->    quitarProducto($id); 
+    modificar/:ID     ->    modificarProducto($id);
+*/
 
 $params = explode('/', $action);
 

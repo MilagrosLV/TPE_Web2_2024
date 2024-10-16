@@ -11,3 +11,6 @@ En futuras entregas, se busca desarrollar la interactividad del usuario al regis
 ### Diagrama
 
 ![Diagrama TPE](https://github.com/MilagrosLV/TPE_Web2_2024/blob/main/Diagrama%20TPE%20actualizado.png)
+
+## Bibliografía
++ Para facilitar la creación del estilo de la página, e utiliza el Boostrap implementado por los docentes en la carrera.
