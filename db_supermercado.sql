@@ -84,7 +84,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `nombre`, `contraseña`) VALUES
 (1, 'Tomas', '123'),
-(2, 'Ricardo', '456'),
+(2, 'webadmin', 'admin'),
 (3, 'Milagros', '765');
 
 --
