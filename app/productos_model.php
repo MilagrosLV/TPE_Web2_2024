@@ -1,21 +1,28 @@
 <?php
 require_once 'app/productos_controller.php';
 
-function conexionDb(){
+function coneccionDb(){
 $db = new PDO('mysql:host=localhost;' . 'dbname=db_supermercado;charset=utf8', 'root', '');
    return $db;
 }
 
-function getProductos(){
-    $db = conexionDb();
+function buscarProductos(){
+    $db = coneccionDb();
     $query =  $query = $db->prepare('SELECT * FROM productos');
     $query->execute();
     $productos = $query->fetchAll(PDO::FETCH_OBJ);
     return $productos;
 }
 
+/*function buscarProducto($nombre){
+    $db = coneccionDb();
+    $query = $db->prepare("SELECT * FROM productos WHERE nombre = ?");
+    $query->execute([$nombre]);
+    return $nombre;
+}*/
+
 function obtenerProductosPorCategoria($categoria){
-    $db = conexionDb();
+    $db = coneccionDb();
     $query = $db->prepare('SELECT * FROM productos WHERE categoria = ?');
     $query->execute([$categoria]);
     $productos = $query->fetchAll(PDO::FETCH_OBJ);
@@ -24,7 +31,7 @@ function obtenerProductosPorCategoria($categoria){
 }
 
 function insertarProducto($nombre, $precio, $categoria){
-    $db= conexionDb();
+    $db= coneccionDb();
     $query = $db->prepare('INSERT INTO productos (nombre, precio, categoria) VALUES (?,?,?)');
     $query->execute([$nombre, $precio, $categoria]);
 
@@ -32,7 +39,7 @@ function insertarProducto($nombre, $precio, $categoria){
 }
 
 function eliminarProducto($id){
-    $db = conexionDb();
+    $db = coneccionDb();
     $query = $db->prepare('DELETE FROM `productos` WHERE id=?');
     $query->execute([$id]);
 }
