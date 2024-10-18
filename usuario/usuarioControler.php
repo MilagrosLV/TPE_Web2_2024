@@ -13,7 +13,7 @@ class controlUsuario {
     }
 
     public function mostrarLogin(){
-        return $this->vista->showLogin();
+        return $this->vista->mostrarLogin();
     }
 
     public function login(){

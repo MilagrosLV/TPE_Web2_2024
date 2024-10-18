@@ -19,6 +19,13 @@ if (!empty( $_GET['action'])) {
 
 $params = explode('/', $action);
 
+function show404() {
+    // Puedes agregar un mensaje de error o redireccionar a una página de error.
+    header("HTTP/1.0 404 Not Found");
+    echo "404 - Página no encontrada";
+    exit(); // Detiene la ejecución del script
+}
+
 switch ($params[0]) { // en la primer posicion tengo la accion real
     case 'home':
         mostrarDB(); // muestra todas los productos
@@ -44,7 +51,7 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         actualizarProducto($params[1]);
         break;
 
-    case 'mostrarlogin':
+    case 'mostrarLogin':
         $controler = new controlUsuario();
         $controler->mostrarLogin();
         break;
