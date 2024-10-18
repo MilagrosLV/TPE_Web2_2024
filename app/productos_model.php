@@ -16,7 +16,7 @@ function getProductos(){
 
 function obtenerProductosPorCategoria($categoria){
     $db = conexionDb();
-    $query = $db->prepare('SELECT * FROM productos WHERE Categoria = ?');
+    $query = $db->prepare('SELECT * FROM productos WHERE categoria = ?');
     $query->execute([$categoria]);
     $productos = $query->fetchAll(PDO::FETCH_OBJ);
 

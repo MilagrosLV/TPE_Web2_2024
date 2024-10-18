@@ -1,8 +1,12 @@
 <?php
 require_once './app/productos_controller.php';
 require_once './usuario/usuarioControler.php';
+require_once './utilidades/response.php';
+require_once './utilidades/mediador.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+
+$res = new Response();
 
 // el router va a leer la action desde el paramtro "action"
 
@@ -27,7 +31,9 @@ function show404() {
 }
 
 switch ($params[0]) { // en la primer posicion tengo la accion real
+
     case 'home':
+        sessionAuth($res);
         mostrarDB(); // muestra todas los productos
         break;
 
@@ -36,29 +42,38 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         break;
 
     case 'agregar':
+        sessionAuth($res);
         addProducto();
         break;
 
     case 'eliminar':
+        sessionAuth($res);
         removerPdroducto($params[1]);
         break;
         
     case 'modificar':
+        sessionAuth($res);
         modificarProducto($params[1]);
         break;
     
     case 'actualizar':
+        sessionAuth($res);
         actualizarProducto($params[1]);
         break;
 
     case 'mostrarLogin':
-        $controler = new controlUsuario();
-        $controler->mostrarLogin();
+        $controller = new controlUsuario();
+        $controller->mostrarLogin();
         break;
     
     case 'login':
-        $controler = new controlUsuario();
-        $controler->login();
+        $controller = new controlUsuario();
+        $controller->login();
+        break;
+
+    case 'desloguear':
+        $controller = new controlUsuario();
+        $controller->desloguear();
         break;
 
     default: 
