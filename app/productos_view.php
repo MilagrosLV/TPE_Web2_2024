@@ -9,7 +9,7 @@
     <?php
     function mostrarHogar($productos){
         require 'templates/header.php';
-        require 'templates/formModificar.php';
+        require 'templates/formAgregar.php';
         ?>  
         <table>
             <thead>
@@ -44,9 +44,14 @@
         require 'templates/footer.php';
     }
     ?> 
-
     <?php
-    function mostrarProductoCategoria($productos, $categoria){
+    function mostrarModificar(){
+        require 'templates/header.php';
+        require 'templates/formModificar.php';
+        require 'templates/footer.php';
+    }
+
+    function mostrarProductos($productos, $categoria){
         echo "<h1>Lista por Categoría: $categoria</h1>";
         echo "<a href='./index.php'>Volver</a>";
         //Imprime la tabla de Productos
