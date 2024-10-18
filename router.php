@@ -1,8 +1,8 @@
 <?php
-require_once './app/productos_controller.php';
-require_once './usuario/usuarioControler.php';
-require_once './utilidades/response.php';
-require_once './utilidades/mediador.php';
+require_once './app/controllers/productos_controller.php';
+require_once './app/controllers/usuarioControler.php';
+require_once './libs/response.php';
+require_once './app/intermedios/mediador.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -44,12 +44,12 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
 
     case 'agregar':
         sessionAuth($res);
-        addProducto();
+        agregarProducto();
         break;
 
     case 'eliminar':
         sessionAuth($res);
-        removerPdroducto($params[1]);
+        removerProducto($params[1]);
         break;
         
     
