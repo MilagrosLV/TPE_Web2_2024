@@ -1,6 +1,6 @@
 <?php
 require_once './app/controllers/productos_controller.php';
-require_once './app/controllers/usuarioControler.php';
+require_once './app/controllers/usuario_controller.php';
 require_once './libs/response.php';
 require_once './app/intermedios/mediador.php';
 
@@ -29,8 +29,8 @@ $params = explode('/', $accion);
 
 switch ($params[0]) { // en la primer posicion tengo la accion real
 
-    case 'home':
-        sessionAuth($res);
+    case 'hogar':
+        //sessionAuth($res);
         mostrarDB(); // muestra todas los productos
         break;
 

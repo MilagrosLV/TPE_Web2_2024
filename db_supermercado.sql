@@ -60,11 +60,11 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id`, `nombre`, `precio`, `categoria`) VALUES
 (1, 'Detergente', 1300, 'Limpieza'),
-(2, 'Pasta de dientes', 2000, 'Limpieza');
-(3, 'Lavandina', 1000, 'Limpieza');
-(4, 'Lentejas', 950, 'Alimento');
-(5, 'Arroz', 1200, 'Alimento');
-(6, 'Coca Cola', 1460, 'Bebida');
+(2, 'Pasta de dientes', 2000, 'Limpieza'),
+(3, 'Lavandina', 1000, 'Limpieza'),
+(4, 'Lentejas', 950, 'Alimento'),
+(5, 'Arroz', 1200, 'Alimento'),
+(6, 'Coca Cola', 1460, 'Bebida'),
 (7, 'Curitas', 880, 'Farmacia');
 -- --------------------------------------------------------
 
@@ -75,14 +75,14 @@ INSERT INTO `productos` (`id`, `nombre`, `precio`, `categoria`) VALUES
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `contraseña` varchar(50) NOT NULL
+  `contrasenia` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `contraseña`) VALUES
+INSERT INTO `usuario` (`id`, `nombre`, `contrasenia`) VALUES
 (1, 'Tomas', '123'),
 (2, 'webadmin', 'admin'),
 (3, 'Milagros', '765');
