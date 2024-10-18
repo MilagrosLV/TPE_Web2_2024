@@ -1,8 +1,8 @@
 <?php
-require_once './app/productos_controller.php';
-require_once './usuario/usuarioControler.php';
-require_once './utilidades/response.php';
-require_once './utilidades/mediador.php';
+require_once './app/controllers/productos_controller.php';
+require_once './app/controllers/usuarioControler.php';
+require_once './libs/response.php';
+require_once './app/intermedios/mediador.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -10,45 +10,46 @@ $res = new Response();
 
 // el router va a leer la action desde el paramtro "action"
 
-$action = 'home'; // accion por defecto
-if (!empty( $_GET['action'])) {
-    $action = $_GET['action'];
+$accion = 'hogar'; // accion por defecto
+if ((isset( $_GET['accion'])) && (!empty( $_GET['accion']))) {
+    $accion = $_GET['accion'];
 }
 
-// listar    ->        mostrarProductos();
-// listar individual ->mostrarProducto($id)
-// agregar   ->        addProducto();
-// eliminar/:ID  ->    removerPdroducto($id); 
-// modificar/:ID  ->   modificarProducto($id);
+/*TABLA DE ROUTEO:
+    ACCION              
+    listar global     ->    mostrarProductos();
+    listar individual ->    mostrarProductos($id)
+    agregar           ->    agregarProducto();
+    eliminar/:ID      ->    removerProducto($id); 
+    modificar/:ID     ->    modificarProducto($id);
+*/
 
-$params = explode('/', $action);
+$params = explode('/', $accion);
 
-function show404() {
-    // Puedes agregar un mensaje de error o redireccionar a una página de error.
-    header("HTTP/1.0 404 Not Found");
-    echo "404 - Página no encontrada";
-    exit(); // Detiene la ejecución del script
-}
 
 switch ($params[0]) { // en la primer posicion tengo la accion real
 
     case 'home':
-        //sessionAuth($res);
+        sessionAuth($res);
         mostrarDB(); // muestra todas los productos
         break;
 
     case 'producto':
-        mostrarProducto($params[1]); // muestra un producto
+        if (isset($params[1])) {
+            mostrarUnProducto($params[1]); // muestra un producto
+        } else {
+            mostrarDB(); // muestra todas los productos
+        }
         break;
 
     case 'agregar':
-        //sessionAuth($res);
-        addProducto();
+        sessionAuth($res);
+        agregarProducto();
         break;
 
     case 'eliminar':
-        //sessionAuth($res);
-        removerPdroducto($params[1]);
+        sessionAuth($res);
+        removerProducto($params[1]);
         break;
         
     
@@ -68,6 +69,6 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         break;
 
     default: 
-        show404();
+        echo "Error router.";
         break;
 }

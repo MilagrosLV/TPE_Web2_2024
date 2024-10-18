@@ -1,6 +1,6 @@
 <?php
-require_once 'usuario/usuarioModel.php';
-require_once 'usuario/usuarioVista.php';
+require_once 'app/models/usuarioModel.php';
+require_once 'app/views/usuarioVista.php';
 
 class controlUsuario {
     private $modelo;
