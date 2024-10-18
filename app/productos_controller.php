@@ -3,6 +3,7 @@ require_once 'app/productos_view.php';
 require_once 'app/productos_model.php';
 
 
+
 function mostrarDB(){
     $productos = getProductos();
     mostrarHome($productos);
@@ -57,3 +58,27 @@ function  removerPdroducto($id){
     header('Location: ' . BASE_URL);
 }
 
+function modificarProducto($id){
+    mostrarModificar($id);
+}
+
+function actualizarProducto($id){
+
+    if ((!isset($_POST['nombre']))) {
+        mostrarError('Nombre no especificado');
+    }
+
+    if ((!isset($_POST['precio']))) {
+        mostrarError('Precio no especificado');
+    }
+
+    if ((!isset($_POST['categoria']))) {
+        mostrarError('Categoría no especificada');
+    }
+
+    $nombre = $_POST['nombre'];
+    $precio = $_POST['precio'];
+    $categoria = $_POST['categoria'];
+
+
+}

@@ -1,6 +1,6 @@
 <?php
 require_once './app/productos_controller.php';
-
+require_once './usuario/usuarioControler.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -38,6 +38,22 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         
     case 'modificar':
         modificarProducto($params[1]);
+        break;
+    
+    case 'actualizar':
+        actualizarProducto($params[1]);
+        break;
+
+    case 'mostrarlogin':
+        $controler = new controlUsuario();
+        $controler->mostrarLogin();
+        break;
+    
+    case 'login':
+        $controler = new controlUsuario();
+        $controler->login();
+        break;
+
     default: 
         show404();
         break;

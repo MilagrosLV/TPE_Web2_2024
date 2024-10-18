@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<form action="agregar" method="POST" class="mb-3">
+<form action="actualizarProducto" method="POST" class="mb-3">
 <div class="mb-3">
     <label for="nombre" class="form-label">Nombre</label>
     <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp">
@@ -27,6 +24,5 @@
     <label for="categoria" class="form-label">Categoria</label>
     <input type="text" class="form-control" name="categoria">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Modificar</button>
 </form>
-
