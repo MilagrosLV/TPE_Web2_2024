@@ -26,17 +26,11 @@ if ((isset( $_GET['accion'])) && (!empty( $_GET['accion']))) {
 
 $params = explode('/', $accion);
 
-function show404() {
-    // Puedes agregar un mensaje de error o redireccionar a una página de error.
-    header("HTTP/1.0 404 Not Found");
-    echo "404 - Página no encontrada";
-    exit(); // Detiene la ejecución del script
-}
 
 switch ($params[0]) { // en la primer posicion tengo la accion real
 
-    case 'home':
-        sessionAuth($res);
+    case 'hogar':
+        //sessionAuth($res);
         mostrarDB(); // muestra todas los productos
         break;
 
@@ -84,6 +78,6 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         break;
 
     default: 
-        mostrarError();
+        echo "Error router.";
         break;
 }

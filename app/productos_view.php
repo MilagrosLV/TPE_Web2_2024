@@ -9,11 +9,10 @@
     <?php
     function mostrarHogar($productos){
         require 'templates/header.php';
-        require 'templates/formAgregar.php';
         ?>  
-        <table>
+        <table style='border:"1";'>
             <thead>
-                <tr>
+                <tr style='background-color:yellow;'>
                     <th>Nombre | </th>
                     <th>Precio | </th>
                     <th>Categoria | </th>
@@ -28,9 +27,43 @@
                 <tr> 
                 <?php 
                 echo"
-                    <tb>$producto->nombre | </tb>
-                    <tb>$producto->precio | </tb>
-                    <tb>$producto->categoria | </tb>
+                    <td>$producto->nombre | </td>
+                    <td>$producto->precio | </td>
+                    <td>$producto->categoria | </td>
+                </tr>";
+                ?>
+            </thead>
+            </table>   
+            <?php 
+        }
+        require 'templates/footer.php';
+    }
+    ?> 
+        <?php
+    function mostrarHogarCRUD($productos){
+        require 'templates/header.php';
+        require 'templates/formAgregar.php';
+        ?>  
+        <table>
+            <thead>
+                <tr style='background-color:yellow;'>
+                    <th>Nombre | </th>
+                    <th>Precio | </th>
+                    <th>Categoria | </th>
+                </tr>
+            </thead>
+        </table>
+        <?php
+        foreach($productos as $producto){
+        ?>  
+            <table>
+            <thead>
+                <tr> 
+                <?php 
+                echo"
+                    <td>$producto->nombre | </td>
+                    <td>$producto->precio | </td>
+                    <td>$producto->categoria | </td>
                 </tr>";
                 ?>
                 <div class="actions">
@@ -59,9 +92,9 @@
         <table>
         <thead>
             <tr>
-                <th>Nombre </th>
-                <th>Precio </th>
-                <th>Categoria </th>
+                <td>Nombre </td>
+                <td>Precio </td>
+                <td>Categoria </td>
             </tr>
         </thead>
         </table>
@@ -72,7 +105,7 @@
                 <table>
                 <thead>
                     <tr>
-                        <tb>$producto->nombre</tb>
+                        <td>$producto->nombre</tb>
                         <tb>$producto->precio</tb>
                     </tr>
                 </thead>
