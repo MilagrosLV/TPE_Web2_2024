@@ -37,3 +37,10 @@ function eliminarProducto($id){
     $query->execute([$id]);
 }
 
+function actualizarProducto($nombre, $precio, $categoria, $id){
+    $db= conexionDb();
+    $query = $db->prepare('UPDATE productos SET nombre=?, precio=?,categoria=? WHERE id= ?');
+    $resultado =$query->execute([$nombre, $precio, $categoria,$id]);
+    return $resultado;
+  
+}

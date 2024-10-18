@@ -39,7 +39,7 @@ class controlUsuario {
             $_SESSION['ID_USUARIO'] = $usuarioDB->id;
             $_SESSION['NOMBRE'] = $usuarioDB->nombre;
 
-            header('Location: ' . BASE_URL . 'home');
+            header('Location: ' . BASE_URL);
             
         } else {
             return $this->vista->mostrarLogin();
@@ -49,6 +49,7 @@ class controlUsuario {
     public function desloguear() {
         session_start();
         session_destroy();
+        header('Location: ' . BASE_URL);
     }
 
 }

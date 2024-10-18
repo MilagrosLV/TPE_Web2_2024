@@ -33,7 +33,7 @@ function show404() {
 switch ($params[0]) { // en la primer posicion tengo la accion real
 
     case 'home':
-        sessionAuth($res);
+        //sessionAuth($res);
         mostrarDB(); // muestra todas los productos
         break;
 
@@ -42,25 +42,16 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         break;
 
     case 'agregar':
-        sessionAuth($res);
+        //sessionAuth($res);
         addProducto();
         break;
 
     case 'eliminar':
-        sessionAuth($res);
+        //sessionAuth($res);
         removerPdroducto($params[1]);
         break;
         
-    case 'modificar':
-        sessionAuth($res);
-        modificarProducto($params[1]);
-        break;
     
-    case 'actualizar':
-        sessionAuth($res);
-        actualizarProducto($params[1]);
-        break;
-
     case 'mostrarLogin':
         $controller = new controlUsuario();
         $controller->mostrarLogin();

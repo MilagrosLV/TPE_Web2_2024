@@ -45,7 +45,7 @@
 
     function mostrarModificar(){
         require 'templates/header.php';
-        require 'templates/formModificar.php';
+        require 'templates/formAgregar.php';
         require 'templates/footer.php';
     }
 
