@@ -1,5 +1,4 @@
-
-    <?php
+<?php
     require_once 'app/productos_controller.php';
 
     function mostrarError($error) {
