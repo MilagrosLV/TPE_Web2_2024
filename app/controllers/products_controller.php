@@ -1,32 +1,30 @@
 <?php
-require_once './app/views/productos_view.php';
-require_once './app/models/productos_model.php';
-
-
+require_once './app/views/products_view.php';
+require_once './app/models/products_model.php';
 
 function showDB(){
-    $productos = buscarProductos();
-    showHogar($productos);
+    $products = getProducts();
+    showProducts($products);
    
 }
 
-function showProductosCategoria($productos, $categoria){
+function showProductsByCategory($products, $category){
     //Verificar datos obligatorios y valida la entrada de usuarios
-    if ((!isset($_GET['Categoria'])) || empty($_GET['Categoria'])) {
+    if ((!isset($_GET['categoria'])) || empty($_GET['categoria'])) {
         showError('Categoría no especificada');
         return;
     } 
 
     //Obtiene la categoria enciada por GET
-    $categoria = $_GET['Categoria'];
+    $category = $_GET['categoria'];
 
     //Llama al model para obtener los productos
-    $productos = obtenerProductosPorCategoria($categoria);
+    $products = getProductsByCategory($category);
 
-    showProductosCategoria($productos, $categoria);
+    showProductsByCategory($products, $category);
 }
 
-function showUnProducto($producto){
+function showProduct($product){
     //Verificar datos obligatorios y valida la entrada de usuarios
     if ((!isset($_GET['producto'])) || empty($_GET['producto'])) {
         showError('Producto no especificado');
@@ -36,46 +34,46 @@ function showUnProducto($producto){
     //Llama al model para obtener los productos
     //$producto = buscarProducto($producto);
 
-    showUnProducto($producto);
+    showProduct($product);
 }
 
-function agregarProducto(){
+function addProduct(){
 
-    if ((!isset($_POST['nombre']))) {
+    if ((!isset($_POST['nombre']))||(empty($_POST['nombre']))) {
         showError('Nombre no especificado');
     }
 
-    if ((!isset($_POST['precio']))) {
+    if ((!isset($_POST['precio']))||(empty($_POST['precio']))) {
         showError('Precio no especificado');
     }
 
-    if ((!isset($_POST['categoria']))) {
+    if ((!isset($_POST['categoria']))||(empty($_POST['categoria']))) {
         showError('Categoría no especificada');
     }
 
 
-    $nombre = $_POST['nombre'];
-    $precio = $_POST['precio'];
-    $categoria = $_POST['categoria'];
-    $accion = $_POST['accion'];
-    $idUsuario = $_POST['idUsuario'];
+    $name = $_POST['nombre'];
+    $price = $_POST['precio'];
+    $category = $_POST['categoria'];
+    $action = $_POST['accion'];
+    $id_user = $_POST['idUsuario'];
 
-    switch ($accion) {
-        case 'subir':
-            $id = insertarProducto($nombre, $precio, $categoria);
+    switch ($action) {
+        case 'add':
+            $id = addProduct($name, $price, $category);
 
             if ($id) {
                 header('Location: ' . BASE_URL);
             } else {
-                echo"error al insertar";
+                echo "Error al insertar";
             }
             break;
 
-        case 'modificar':
+        case 'update':
             if ((!isset($_POST['idUsuario']))) {
                 showError('Categoría no especificada');
             }
-            $result = actualizarProducto($nombre, $precio, $categoria,$idUsuario);
+            $result = updateProduct($name, $price, $category,$id_user);
             if ($result) {
                 header('Location: ' . BASE_URL);
             } else {
@@ -84,17 +82,17 @@ function agregarProducto(){
             break;
 
         default:
-            echo "Acción no válida";
+            showError("Acción no válida");
     }
 }
 
    
 
 function  removerProducto($id){
-    eliminarProducto($id);
+    deleteProduct($id);
     header('Location: ' . BASE_URL);
 }
 
-function modificarProducto($id){
-    showModificar($id);
+function updateProduct($id){
+    showUpdate($id);
 }

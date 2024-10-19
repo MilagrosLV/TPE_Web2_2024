@@ -1,12 +1,12 @@
 <?php
-require_once './app/controllers/productos_controller.php';
+require_once './app/controllers/products_controller.php';
 require_once './app/controllers/usuario_controller.php';
-require_once './libs/response.php';
-require_once './app/intermedios/mediador.php';
+//require_once './libs/response.php';
+//require_once './app/intermedios/mediador.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$res = new Response();
+//$res = new response();
 
 // el router va a leer la action desde el paramtro "action"
 
@@ -29,42 +29,42 @@ $params = explode('/', $accion);
 
 switch ($params[0]) { // en la primer posicion tengo la accion real
 
-    case 'hogar':
-        sessionAuth($res);
+    case 'home':
+        //sessionAuth($res);
         showDB(); // muestra todas los productos
         break;
 
-    case 'producto':
+    case 'product':
         if (isset($params[1])) {
-            showUnProducto($params[1]); // muestra un producto
+            showProduct($params[1]); // muestra un producto
         } else {
             showDB(); // muestra todas los productos
         }
         break;
 
-    case 'agregar':
+    case 'add':
         sessionAuth($res);
-        agregarProducto();
+        addProduct();
         break;
 
-    case 'eliminar':
+    case 'delete':
         sessionAuth($res);
         removerProducto($params[1]);
         break;
         
     
     case 'showLogin':
-        $controller = new controlUsuario();
+        $controller = new user_controller();
         $controller->showLogin();
         break;
     
     case 'login':
-        $controller = new controlUsuario();
+        $controller = new user_controller();
         $controller->logIn();
         break;
 
     case 'logout':
-        $controller = new controlUsuario();
+        $controller = new user_controller();
         $controller->logOut();
         break;
 

@@ -1,12 +1,12 @@
 <?php
 
- class usuarioModel {
+class user_model {
 
     private $db;
 
 
     public function __construct(){
-    $this->db = new PDO('mysql:host=localhost;dbname=db_supermercado;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;dbname=db_supermercado;charset=utf8', 'root', '');
     }
  
     public function getUsuario($nombre){
@@ -16,4 +16,4 @@
         return $usuario;
     }
 
- }
+}

@@ -1,53 +1,53 @@
 <?php
-require_once 'app/controllers/productos_controller.php';
+require_once 'app/controllers/products_controller.php';
 
-function coneccionDb(){
+function conexionDb(){
 $db = new PDO('mysql:host=localhost;' . 'dbname=db_supermercado;charset=utf8', 'root', '');
    return $db;
 }
 
-function buscarProductos(){
-    $db = coneccionDb();
+function getProducts(){
+    $db = conexionDb();
     $query =  $query = $db->prepare('SELECT * FROM productos');
     $query->execute();
     $productos = $query->fetchAll(PDO::FETCH_OBJ);
     return $productos;
 }
 
-/*function buscarProducto($nombre){
-    $db = coneccionDb();
+/*function buscarProducto($name){
+    $db = conexionDb();
     $query = $db->prepare("SELECT * FROM productos WHERE nombre = ?");
-    $query->execute([$nombre]);
-    return $nombre;
+    $query->execute([$name]);
+    return $name;
 }*/
-
-function obtenerProductosPorCategoria($categoria){
-    $db = coneccionDb();
+ 
+function getProductsByCategory($category){
+    $db = conexionDb();
     $query = $db->prepare('SELECT * FROM productos WHERE categoria = ?');
-    $query->execute([$categoria]);
-    $productos = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->execute([$category]);
+    $products = $query->fetchAll(PDO::FETCH_OBJ);
 
-    return $productos;
+    return $products;
 }
 
-function insertarProducto($nombre, $precio, $categoria){
-    $db= coneccionDb();
+function addProduct($name, $price, $category){
+    $db= conexionDb();
     $query = $db->prepare('INSERT INTO productos (nombre, precio, categoria) VALUES (?,?,?)');
-    $query->execute([$nombre, $precio, $categoria]);
+    $query->execute([$name, $price, $category]);
 
     return $db->lastInsertId();
 }
 
-function eliminarProducto($id){
-    $db = coneccionDb();
+function deleteProduct($id){
+    $db = conexionDb();
     $query = $db->prepare('DELETE FROM `productos` WHERE id=?');
     $query->execute([$id]);
 }
 
-function actualizarProducto($nombre, $precio, $categoria, $id){
-    $db= coneccionDb();
+function updateProduct($name, $price, $category, $id){
+    $db= conexionDb();
     $query = $db->prepare('UPDATE productos SET nombre=?, precio=?,categoria=? WHERE id= ?');
-    $resultado =$query->execute([$nombre, $precio, $categoria,$id]);
+    $resultado =$query->execute([$name, $price, $category, $id]);
     return $resultado;
   
 }

@@ -2,13 +2,13 @@
 require_once 'app/models/user_model.php';
 require_once 'app/views/user_view.php';
 
-class controlUsuario {
-    private $modelo;
+class user_controller {
+    private $model;
     private $vista;
 
     public function __construct() {
-        $this->modelo = new usuarioModel();
-        $this->vista = new usuarioVista();
+        $this->model = new user_model();
+        $this->vista = new user_view();
         
     }
 
@@ -16,7 +16,7 @@ class controlUsuario {
         return $this->vista->showLogin();
     }
 
-    public function login(){
+    public function logIn(){
 
         if (!isset($_POST['nombre']) || empty($_POST['nombre'])){
             return $this->vista->showError('Completar nombre de usuario');
@@ -29,7 +29,7 @@ class controlUsuario {
         $nombre = $_POST['nombre'];
         $contrasenia = $_POST['contrasenia'];
 
-        $usuarioDB = $this->modelo->getUsuario($nombre);
+        $usuarioDB = $this->model->getUsuario($nombre);
 
         if ($usuarioDB === false) {
             return $this->vista->showError('Usuario no encontrado');
@@ -46,7 +46,7 @@ class controlUsuario {
         }
     }
 
-    public function desloguear() {
+    public function logOut() {
         session_start();
         session_destroy();
         header('Location: ' . BASE_URL);

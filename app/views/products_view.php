@@ -1,13 +1,7 @@
 <?php
     require_once 'app/controllers/products_controller.php';
 
-    function showError($error) {
-        echo "<h2>Error. $error.</h2>";
-    }
-    ?> 
-
-        <?php
-    function showHogar($productos){
+    function showProducts($products){
         require 'templates/header.php';
         require 'templates/formAgregar.php';
         ?>  
@@ -21,7 +15,7 @@
             </thead>
         </table>
         <?php
-        foreach($productos as $producto){
+        foreach($products as $producto){
         ?>  
             <table>
             <thead>
@@ -34,27 +28,27 @@
                 </tr>";
                 ?>
                 <div class="actions">
-                    <a href="modificar/<?php echo $producto->id ?>" class="btn btn-primary" >Modificar</a>
-                    <a href="eliminar/<?php echo $producto->id ?>" class="btn btn-danger" >Eliminar</a>
+                    <a href="update/<?php echo $producto->id ?>" class="btn btn-primary" >Modificar</a>
+                    <a href="delete/<?php echo $producto->id ?>" class="btn btn-danger" >Eliminar</a>
                 </div>
             </thead>
             </table>   
             <?php 
         }
-        require 'templates/footer.php';
+        require './templates/footer.php';
     }
     ?> 
     <?php
-    function showModificar(){
+    function showUpdate(){
         require 'templates/header.php';
-        require 'templates/formAgregar.php';
+        require 'templates/form_add.php';
         require 'templates/footer.php';
     }
 
-    function showProductos($productos, $categoria){
+    function showProductsCategory($products, $categoria){
         echo "<h1>Lista por Categoría: $categoria</h1>";
-        echo "<a href='./index.php'>Volver</a>";
-        //Imprime la tabla de Productos
+        echo "<a href='./home'>Volver</a>";
+        //Imprime la tabla de productos
     ?> 
         <table>
         <thead>
@@ -64,23 +58,21 @@
                 <td>Categoria </td>
             </tr>
         </thead>
-        </table>
 
         <?php
-        foreach($productos as $producto) {
+        foreach($products as $producto) {
             echo"
-                <table>
-                <thead>
+                <tbody>
                     <tr>
                         <td>$producto->nombre</tb>
                         <tb>$producto->precio</tb>
                     </tr>
-                </thead>
+                </tbody>
                 </table>";
         }
     }
 
-    ?>  
-
-</body>
-</html>
+    function showError($error) {
+        echo "<h2>Error. $error.</h2>";
+    }
+    

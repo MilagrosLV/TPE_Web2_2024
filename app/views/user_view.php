@@ -1,6 +1,6 @@
 <?php
 
-class usuarioVista {
+class user_view {
 
     public function showLogin(){
         require 'templates/formLogin.phtml';
