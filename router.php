@@ -17,8 +17,8 @@ if ((isset( $_GET['accion'])) && (!empty( $_GET['accion']))) {
 
 /*TABLA DE ROUTEO:
     ACCION              
-    listar global     ->    mostrarProductos();
-    listar individual ->    mostrarProductos($id)
+    listar global     ->    showProductos();
+    listar individual ->    showProductos($id)
     agregar           ->    agregarProducto();
     eliminar/:ID      ->    removerProducto($id); 
     modificar/:ID     ->    modificarProducto($id);
@@ -30,15 +30,15 @@ $params = explode('/', $accion);
 switch ($params[0]) { // en la primer posicion tengo la accion real
 
     case 'hogar':
-        //sessionAuth($res);
-        mostrarDB(); // muestra todas los productos
+        sessionAuth($res);
+        showDB(); // muestra todas los productos
         break;
 
     case 'producto':
         if (isset($params[1])) {
-            mostrarUnProducto($params[1]); // muestra un producto
+            showUnProducto($params[1]); // muestra un producto
         } else {
-            mostrarDB(); // muestra todas los productos
+            showDB(); // muestra todas los productos
         }
         break;
 
@@ -53,19 +53,19 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         break;
         
     
-    case 'mostrarLogin':
+    case 'showLogin':
         $controller = new controlUsuario();
-        $controller->mostrarLogin();
+        $controller->showLogin();
         break;
     
     case 'login':
         $controller = new controlUsuario();
-        $controller->login();
+        $controller->logIn();
         break;
 
-    case 'desloguear':
+    case 'logout':
         $controller = new controlUsuario();
-        $controller->desloguear();
+        $controller->logOut();
         break;
 
     default: 

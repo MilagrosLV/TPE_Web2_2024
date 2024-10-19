@@ -27,9 +27,6 @@
                             <a class="nav-link" aria-current="page" href="home">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="about">About</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="about">Ingreso Administrativo</a>
                         </li>
                     </ul>

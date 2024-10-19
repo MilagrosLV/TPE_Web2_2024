@@ -1,46 +1,13 @@
 <?php
-    require_once 'app/controllers/productos_controller.php';
+    require_once 'app/controllers/products_controller.php';
 
-    function mostrarError($error) {
+    function showError($error) {
         echo "<h2>Error. $error.</h2>";
     }
     ?> 
 
-    <?php
-    function mostrarHogar($productos){
-        require 'templates/header.php';
-        ?>  
-        <table style='border:"1";'>
-            <thead>
-                <tr style='background-color:yellow;'>
-                    <th>Nombre | </th>
-                    <th>Precio | </th>
-                    <th>Categoria | </th>
-                </tr>
-            </thead>
-        </table>
         <?php
-        foreach($productos as $producto){
-        ?>  
-            <table>
-            <thead>
-                <tr> 
-                <?php 
-                echo"
-                    <td>$producto->nombre | </td>
-                    <td>$producto->precio | </td>
-                    <td>$producto->categoria | </td>
-                </tr>";
-                ?>
-            </thead>
-            </table>   
-            <?php 
-        }
-        require 'templates/footer.php';
-    }
-    ?> 
-        <?php
-    function mostrarHogarCRUD($productos){
+    function showHogar($productos){
         require 'templates/header.php';
         require 'templates/formAgregar.php';
         ?>  
@@ -78,13 +45,13 @@
     }
     ?> 
     <?php
-    function mostrarModificar(){
+    function showModificar(){
         require 'templates/header.php';
         require 'templates/formAgregar.php';
         require 'templates/footer.php';
     }
 
-    function mostrarProductos($productos, $categoria){
+    function showProductos($productos, $categoria){
         echo "<h1>Lista por Categoría: $categoria</h1>";
         echo "<a href='./index.php'>Volver</a>";
         //Imprime la tabla de Productos

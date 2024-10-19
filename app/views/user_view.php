@@ -2,11 +2,11 @@
 
 class usuarioVista {
 
-    public function mostrarLogin(){
+    public function showLogin(){
         require 'templates/formLogin.phtml';
     }
 
-    function mostrarError($error) {
+    function showError($error) {
         echo "<h2>Error. $error.</h2>";
     }
 

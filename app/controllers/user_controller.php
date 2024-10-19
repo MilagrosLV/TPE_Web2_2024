@@ -1,6 +1,6 @@
 <?php
-require_once 'app/models/usuarioModel.php';
-require_once 'app/views/usuarioVista.php';
+require_once 'app/models/user_model.php';
+require_once 'app/views/user_view.php';
 
 class controlUsuario {
     private $modelo;
@@ -12,18 +12,18 @@ class controlUsuario {
         
     }
 
-    public function mostrarLogin(){
-        return $this->vista->mostrarLogin();
+    public function showLogin(){
+        return $this->vista->showLogin();
     }
 
     public function login(){
 
         if (!isset($_POST['nombre']) || empty($_POST['nombre'])){
-            return $this->vista->mostrarError('Completar nombre de usuario');
+            return $this->vista->showError('Completar nombre de usuario');
         }
 
         if (!isset($_POST['contrasenia']) || empty($_POST['contrasenia'])){
-            return $this->vista->mostrarError('Completar contraseña');
+            return $this->vista->showError('Completar contraseña');
         }
 
         $nombre = $_POST['nombre'];
@@ -32,7 +32,7 @@ class controlUsuario {
         $usuarioDB = $this->modelo->getUsuario($nombre);
 
         if ($usuarioDB === false) {
-            return $this->vista->mostrarError('Usuario no encontrado');
+            return $this->vista->showError('Usuario no encontrado');
         }
         if (password_verify($contrasenia, $usuarioDB->contrasenia)){
             session_start();
@@ -42,7 +42,7 @@ class controlUsuario {
             header('Location: ' . BASE_URL);
             
         } else {
-            return $this->vista->mostrarLogin();
+            return $this->vista->showLogin();
         }
     }
 

@@ -4,16 +4,16 @@ require_once './app/models/productos_model.php';
 
 
 
-function mostrarDB(){
+function showDB(){
     $productos = buscarProductos();
-    mostrarHogar($productos);
+    showHogar($productos);
    
 }
 
-function mostrarProductosCategoria($productos, $categoria){
+function showProductosCategoria($productos, $categoria){
     //Verificar datos obligatorios y valida la entrada de usuarios
     if ((!isset($_GET['Categoria'])) || empty($_GET['Categoria'])) {
-        mostrarError('Categoría no especificada');
+        showError('Categoría no especificada');
         return;
     } 
 
@@ -23,34 +23,34 @@ function mostrarProductosCategoria($productos, $categoria){
     //Llama al model para obtener los productos
     $productos = obtenerProductosPorCategoria($categoria);
 
-    mostrarProductosCategoria($productos, $categoria);
+    showProductosCategoria($productos, $categoria);
 }
 
-function mostrarUnProducto($producto){
+function showUnProducto($producto){
     //Verificar datos obligatorios y valida la entrada de usuarios
     if ((!isset($_GET['producto'])) || empty($_GET['producto'])) {
-        mostrarError('Producto no especificado');
+        showError('Producto no especificado');
         return;
     }
 
     //Llama al model para obtener los productos
     //$producto = buscarProducto($producto);
 
-    mostrarUnProducto($producto);
+    showUnProducto($producto);
 }
 
 function agregarProducto(){
 
     if ((!isset($_POST['nombre']))) {
-        mostrarError('Nombre no especificado');
+        showError('Nombre no especificado');
     }
 
     if ((!isset($_POST['precio']))) {
-        mostrarError('Precio no especificado');
+        showError('Precio no especificado');
     }
 
     if ((!isset($_POST['categoria']))) {
-        mostrarError('Categoría no especificada');
+        showError('Categoría no especificada');
     }
 
 
@@ -73,7 +73,7 @@ function agregarProducto(){
 
         case 'modificar':
             if ((!isset($_POST['idUsuario']))) {
-                mostrarError('Categoría no especificada');
+                showError('Categoría no especificada');
             }
             $result = actualizarProducto($nombre, $precio, $categoria,$idUsuario);
             if ($result) {
@@ -96,5 +96,5 @@ function  removerProducto($id){
 }
 
 function modificarProducto($id){
-    mostrarModificar($id);
+    showModificar($id);
 }
