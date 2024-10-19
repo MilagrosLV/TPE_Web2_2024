@@ -82,14 +82,14 @@ class products_controller {
     
             case 'update':
                 if ((!isset($_POST['idUsuario']))) {
-                    $this->view->showError('Categoría no especificada');
+                    $this->view->showError('No es usuario');
                 }
 
-                $result = $this->model->updateProduct($name, $price, $category, $id_user);
+                $result = $this->model->getProduct($id);
                 if ($result) {
                     header('Location: ' . BASE_URL);
                 } else {
-                    $this->view->showError('No se logró insertar');
+                    $this->view->showError('No se logró modificar');
                 }
                 break;
     
@@ -100,13 +100,22 @@ class products_controller {
     
        
     
-    public function  removerProducto($id){
+    public function  removeProduct($id){
+        $product = $this->model->getProduct($id);
+        if (!$product) {
+            return $this->view->showError("No existe el producto con la id $id");
+        }
         $this->model->deleteProduct($id);
         header('Location: ' . BASE_URL);
     }
     
     public function updateProduct($id){
-        $this->view->showUpdate($id);
+        $product = $this->model->getProduct($id);
+        if (!$product) {
+            return $this->view->showError("No existe el producto con la id $id");
+        }
+        $this->model->renovateProduct($id);
+        header('Location: ' . BASE_URL);
     }
     
 }

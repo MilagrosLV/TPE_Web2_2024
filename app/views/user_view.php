@@ -3,7 +3,7 @@
 class user_view {
 
     public function showLogin(){
-        require 'templates/formLogin.phtml';
+        require 'templates/form_login.phtml';
     }
 
     function showError($error) {

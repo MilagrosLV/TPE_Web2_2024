@@ -11,8 +11,8 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 // el router va a leer la accion desde el parametro "action"
 
 $action = 'home'; // accion por defecto
-if ((isset( $_GET['accion'])) && (!empty( $_GET['accion']))) {
-    $acion = $_GET['accion'];
+if ((isset( $_GET['action'])) && (!empty( $_GET['action']))) {
+    $acion = $_GET['action'];
 }
 
 /*TABLA DE ROUTEO:
@@ -20,7 +20,7 @@ if ((isset( $_GET['accion'])) && (!empty( $_GET['accion']))) {
     home     ->    showProducts();
     product ->    showProduct($id)
     add           ->    addProduct();
-    delete/:ID      ->    removerProducto($id); 
+    delete/:ID      ->    removeProduct($id); 
     update/:ID     ->    modificarProducto($id);
 */
 
@@ -49,11 +49,17 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
         $controller = new products_controller();
         $controller->addProduct();
         break;
+        
+    case 'update':
+        $controller = new products_controller();
+            //sessionAuth($res);
+        $controller->updateProduct($params[1]);
+        break;
 
     case 'delete':
         $controller = new products_controller();
         //sessionAuth($res);
-        $controller->removerProducto($params[1]);
+        $controller->removeProduct($params[1]);
         break;
         
     
