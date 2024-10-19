@@ -1,6 +1,6 @@
 <?php
 require_once './app/controllers/products_controller.php';
-require_once './app/controllers/usuario_controller.php';
+require_once './app/controllers/user_controller.php';
 //require_once './libs/response.php';
 //require_once './app/intermedios/mediador.php';
 
@@ -8,48 +8,52 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 
 //$res = new response();
 
-// el router va a leer la action desde el paramtro "action"
+// el router va a leer la accion desde el parametro "action"
 
-$accion = 'hogar'; // accion por defecto
+$accion = 'home'; // accion por defecto
 if ((isset( $_GET['accion'])) && (!empty( $_GET['accion']))) {
-    $accion = $_GET['accion'];
+    $acion = $_GET['accion'];
 }
 
 /*TABLA DE ROUTEO:
     ACCION              
-    listar global     ->    showProductos();
-    listar individual ->    showProductos($id)
-    agregar           ->    agregarProducto();
-    eliminar/:ID      ->    removerProducto($id); 
-    modificar/:ID     ->    modificarProducto($id);
+    home     ->    showProducts();
+    product ->    showProduct($id)
+    add           ->    agregarProducto();
+    delete/:ID      ->    removerProducto($id); 
+    update/:ID     ->    modificarProducto($id);
 */
 
-$params = explode('/', $accion);
+$params = explode('/', $action);
 
 
 switch ($params[0]) { // en la primer posicion tengo la accion real
 
     case 'home':
         //sessionAuth($res);
-        showDB(); // muestra todas los productos
+        $controller = new products_controller();
+        $controller->showDB(); // muestra todas los productos
         break;
 
     case 'product':
+        $controller = new products_controller();
         if (isset($params[1])) {
-            showProduct($params[1]); // muestra un producto
+            $controller->showProduct($params[1]); // muestra un producto
         } else {
-            showDB(); // muestra todas los productos
+            $controller->showDB(); // muestra todas los productos
         }
         break;
 
     case 'add':
-        sessionAuth($res);
-        addProduct();
+        //sessionAuth($res);
+        $controller = new products_controller();
+        $controller->addProduct();
         break;
 
     case 'delete':
-        sessionAuth($res);
-        removerProducto($params[1]);
+        $controller = new products_controller();
+        //sessionAuth($res);
+        $controller->removerProducto($params[1]);
         break;
         
     

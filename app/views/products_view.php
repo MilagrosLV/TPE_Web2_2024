@@ -1,9 +1,15 @@
 <?php
     require_once 'app/controllers/products_controller.php';
 
-    function showProducts($products){
-        require 'templates/header.php';
-        require 'templates/formAgregar.php';
+class products_view{
+
+    public function __construct(){
+        
+    }
+
+    public function showProducts($products){
+        require_once 'templates/header.php';
+        require_once 'templates/form_add.php';
         ?>  
         <table>
             <thead>
@@ -13,39 +19,70 @@
                     <th>Categoria | </th>
                 </tr>
             </thead>
-        </table>
         <?php
-        foreach($products as $producto){
+        foreach($products as $product){
         ?>  
-            <table>
-            <thead>
+            
+            <tbody>
                 <tr> 
                 <?php 
                 echo"
-                    <td>$producto->nombre | </td>
-                    <td>$producto->precio | </td>
-                    <td>$producto->categoria | </td>
+                    <td>$product->nombre | </td>
+                    <td>$product->precio | </td>
+                    <td>$product->categoria | </td>
                 </tr>";
                 ?>
                 <div class="actions">
-                    <a href="update/<?php echo $producto->id ?>" class="btn btn-primary" >Modificar</a>
-                    <a href="delete/<?php echo $producto->id ?>" class="btn btn-danger" >Eliminar</a>
+                    <a href="update/<?php echo $product->id ?>" class="btn btn-primary" >Modificar</a>
+                    <a href="delete/<?php echo $product->id ?>" class="btn btn-danger" >Eliminar</a>
                 </div>
-            </thead>
+            </tbody>
             </table>   
             <?php 
         }
-        require './templates/footer.php';
+        require_once './templates/footer.php';
     }
-    ?> 
-    <?php
-    function showUpdate(){
+    public function showProduct($product){
+        require_once 'templates/header.php';
+        require_once 'templates/form_add.php';
+        ?>  
+        <table>
+            <thead>
+                <tr style='background-color:yellow;'>
+                    <th>Nombre | </th>
+                    <th>Precio | </th>
+                    <th>Categoria | </th>
+                </tr>
+            </thead>          
+            <tbody>
+                <tr> 
+                <?php 
+                echo"
+                    <td>$product->nombre | </td>
+                    <td>$product->precio | </td>
+                    <td>$product->categoria | </td>
+                </tr>";
+                ?>
+                <div class="actions">
+                    <a href="update/<?php echo $product->id ?>" class="btn btn-primary" >Modificar</a>
+                    <a href="delete/<?php echo $product->id ?>" class="btn btn-danger" >Eliminar</a>
+                </div>
+            </tbody>
+            </table>   
+            <?php 
+        
+        require_once './templates/footer.php';
+    }
+    
+
+    
+    public function showUpdate(){
         require 'templates/header.php';
         require 'templates/form_add.php';
         require 'templates/footer.php';
     }
 
-    function showProductsCategory($products, $categoria){
+    public function showProductsCategory($products, $categoria){
         echo "<h1>Lista por Categoría: $categoria</h1>";
         echo "<a href='./home'>Volver</a>";
         //Imprime la tabla de productos
@@ -60,19 +97,22 @@
         </thead>
 
         <?php
-        foreach($products as $producto) {
+        foreach($products as $product) {
             echo"
                 <tbody>
                     <tr>
-                        <td>$producto->nombre</tb>
-                        <tb>$producto->precio</tb>
+                        <td>$product->nombre</tb>
+                        <tb>$product->precio</tb>
                     </tr>
                 </tbody>
                 </table>";
         }
     }
 
-    function showError($error) {
+    public function showError($error) {
         echo "<h2>Error. $error.</h2>";
     }
+    
+}
+
     
