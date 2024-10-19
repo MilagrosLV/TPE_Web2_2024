@@ -30,7 +30,7 @@ class products_model {
     }
         
     public function insertProduct($name, $price, $category){
-        $query = $this->db->prepare('INSERT INTO productos(nombre, precio, categoria) VALUES (?, ?, ?)');
+        $query = $this->db->prepare('INSERT INTO productos (nombre, precio, categoria) VALUES (?, ?, ?)');
         $query->execute([$name, $price, $category]);   
         return $this->db->lastInsertId();
     }
