@@ -12,7 +12,8 @@ class products_controller {
         $this->view = new products_view();
     }
 
-    public function showDB(){
+
+    public function showProducts(){
         $products = $this->model->getProducts();
         $this->view->showProducts($products);
        
@@ -50,27 +51,27 @@ class products_controller {
     public function addProduct(){
     
         if ((!isset($_POST['nombre']))||(empty($_POST['nombre']))) {
-            $this->view->showError('Nombre no especificado');
+            return $this->view->showError('Nombre no especificado');
         }
     
         if ((!isset($_POST['precio']))||(empty($_POST['precio']))) {
-            $this->view->showError('Precio no especificado');
+            return $this->view->showError('Precio no especificado');
         }
     
         if ((!isset($_POST['categoria']))||(empty($_POST['categoria']))) {
-            $this->view->showError('Categoría no especificada');
+            return $this->view->showError('Categoría no especificada');
         }
     
-    
+
         $name = $_POST['nombre'];
         $price = $_POST['precio'];
         $category = $_POST['categoria'];
-        $action = $_POST['accion'];
+        $action = $_POST['action'];
         $id_user = $_POST['idUsuario'];
     
         switch ($action) {
             case 'add':
-                $id = $this->model->addProduct($name, $price, $category);
+                $id = $this->model->insertProduct($name, $price, $category);
     
                 if ($id) {
                     header('Location: ' . BASE_URL);
@@ -83,7 +84,8 @@ class products_controller {
                 if ((!isset($_POST['idUsuario']))) {
                     $this->view->showError('Categoría no especificada');
                 }
-                $result = $this->model->updateProduct($name, $price, $category,$id_user);
+
+                $result = $this->model->updateProduct($name, $price, $category, $id_user);
                 if ($result) {
                     header('Location: ' . BASE_URL);
                 } else {

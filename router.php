@@ -1,6 +1,6 @@
 <?php
 require_once './app/controllers/products_controller.php';
-require_once './app/controllers/user_controller.php';
+//require_once './app/controllers/user_controller.php';
 //require_once './libs/response.php';
 //require_once './app/intermedios/mediador.php';
 
@@ -10,7 +10,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 
 // el router va a leer la accion desde el parametro "action"
 
-$accion = 'home'; // accion por defecto
+$action = 'home'; // accion por defecto
 if ((isset( $_GET['accion'])) && (!empty( $_GET['accion']))) {
     $acion = $_GET['accion'];
 }
@@ -19,7 +19,7 @@ if ((isset( $_GET['accion'])) && (!empty( $_GET['accion']))) {
     ACCION              
     home     ->    showProducts();
     product ->    showProduct($id)
-    add           ->    agregarProducto();
+    add           ->    addProduct();
     delete/:ID      ->    removerProducto($id); 
     update/:ID     ->    modificarProducto($id);
 */
@@ -32,15 +32,15 @@ switch ($params[0]) { // en la primer posicion tengo la accion real
     case 'home':
         //sessionAuth($res);
         $controller = new products_controller();
-        $controller->showDB(); // muestra todas los productos
+        $controller->showProducts(); // muestra todas los productos
         break;
 
     case 'product':
         $controller = new products_controller();
-        if (isset($params[1])) {
+        if ((isset($params[1]))&&(!empty($params[1]))) {
             $controller->showProduct($params[1]); // muestra un producto
         } else {
-            $controller->showDB(); // muestra todas los productos
+            $controller->showProducts(); // muestra todas los productos
         }
         break;
 

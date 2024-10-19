@@ -8,40 +8,31 @@ class products_view{
     }
 
     public function showProducts($products){
-        require_once 'templates/header.php';
+        require_once './templates/header.php';
         require_once 'templates/form_add.php';
-        ?>  
-        <table>
-            <thead>
-                <tr style='background-color:yellow;'>
-                    <th>Nombre | </th>
-                    <th>Precio | </th>
-                    <th>Categoria | </th>
-                </tr>
-            </thead>
-        <?php
-        foreach($products as $product){
-        ?>  
-            
-            <tbody>
-                <tr> 
-                <?php 
-                echo"
-                    <td>$product->nombre | </td>
-                    <td>$product->precio | </td>
-                    <td>$product->categoria | </td>
-                </tr>";
-                ?>
-                <div class="actions">
-                    <a href="update/<?php echo $product->id ?>" class="btn btn-primary" >Modificar</a>
-                    <a href="delete/<?php echo $product->id ?>" class="btn btn-danger" >Eliminar</a>
+        ?>
+        <h2>Todos nuestros productos</h2>
+
+        <ul class="list-group">
+        <?php foreach($products as $product){ ?>
+            <li class="list-group-item item-product">
+                <div class="label">
+                    <b><?= $product->nombre ?> | </b>
+                    <b><?= $product->precio ?> | </b>
+                    <b><?= $product->categoria ?></b>
+                    <div class="actions">
+                        <a href="update/<?php echo $product->id ?>" class="btn btn-primary">Modificar</a>
+                        <a href="delete/<?php echo $product->id ?>" class="btn btn-danger">Eliminar</a>
+                    </div>
                 </div>
-            </tbody>
-            </table>   
-            <?php 
+            </li>
+
+        
+        <?php
         }
         require_once './templates/footer.php';
     }
+
     public function showProduct($product){
         require_once 'templates/header.php';
         require_once 'templates/form_add.php';
@@ -74,39 +65,16 @@ class products_view{
         require_once './templates/footer.php';
     }
     
-
     
     public function showUpdate(){
-        require 'templates/header.php';
-        require 'templates/form_add.php';
-        require 'templates/footer.php';
+        require_once 'templates/header.php';
+        require_once 'templates/form_add.php';
+        require_once 'templates/footer.php';
     }
 
-    public function showProductsCategory($products, $categoria){
-        echo "<h1>Lista por Categoría: $categoria</h1>";
-        echo "<a href='./home'>Volver</a>";
-        //Imprime la tabla de productos
-    ?> 
-        <table>
-        <thead>
-            <tr>
-                <td>Nombre </td>
-                <td>Precio </td>
-                <td>Categoria </td>
-            </tr>
-        </thead>
+    public function showProductsByCategory($products, $category){
+        require_once './templates/products_table.php';  //Imprime la tabla de productos        
 
-        <?php
-        foreach($products as $product) {
-            echo"
-                <tbody>
-                    <tr>
-                        <td>$product->nombre</tb>
-                        <tb>$product->precio</tb>
-                    </tr>
-                </tbody>
-                </table>";
-        }
     }
 
     public function showError($error) {
@@ -114,5 +82,6 @@ class products_view{
     }
     
 }
+
 
     
