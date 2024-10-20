@@ -8,7 +8,7 @@
             <input type="text" name="productPrice" placeholder="Inserte precio del producto"><br>
         <select name="categoryId">
             {foreach from=$select  item=$item}
-                <option value="{$item->id_category}">{$item->category_name} </option>
+                <option value="{$item->id_categoria}">{$item->nombre_categoria} </option>
             {/foreach}
         </select>
         <button type="submit">Agregar</button>
