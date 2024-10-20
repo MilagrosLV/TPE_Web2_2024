@@ -8,7 +8,7 @@
     {/foreach}
 </ul>
 {if isset($username)}
-    <a href="{BASE_URL}deleteCategory/{$id_category}"> Eliminar </a> 
+    <a href="{BASE_URL}deleteCategoryConfirm/{$id_category}"> Eliminar </a> 
     <a href="{BASE_URL}updateCategory/{$id_category}"> Editar </a>   
 {/if}
 </div>

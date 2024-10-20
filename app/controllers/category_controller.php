@@ -54,7 +54,7 @@ class CategoryController {
         $category_name =$_POST["categoryName"];
         if((isset($category_name))&&(!empty($category_name))){
             $this->categoryModel-> insertCategory($category_name); 
-            header("Location: " . BASE_URL . 'categorias');
+            header("Location: " . BASE_URL . 'categories');
         }
         else{
             $this->categoryView->showError('Error al insertar Categoría');
@@ -88,7 +88,7 @@ class CategoryController {
         AuthHelper::checkLoggedIn();
         if(isset($id_category)&&!empty($id_category)){
             $this->categoryModel->deleteCategoryById($id_category);
-            header("Location: " . BASE_URL . 'categorias'); 
+            header("Location: " . BASE_URL . 'categories'); 
         }
         else{
             $this->categoryView->showError('No se ha podido eliminar la categoria');

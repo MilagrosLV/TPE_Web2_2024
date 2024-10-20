@@ -27,7 +27,7 @@ class CategoryModel{
         return $products; 
     }
     public function insertCategory($category_name){
-        $query = $this->db->prepare("INSERT INTO `categorias`  (`nombre_categoria`) VALUES (?)");
+        $query = $this->db->prepare('INSERT INTO `categorias`  (`nombre_categoria`) VALUES (?)');
         $query->execute([$category_name]);
         return $this->db->lastInsertId();
     }
