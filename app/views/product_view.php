@@ -26,6 +26,17 @@ class ProductView{
         $this->smarty->display('addProduct.tpl');
 
     }
+
+    public function showUpdateProduct($select, $id_product) {
+        $this->smarty->assign('page', 'Editar un producto');
+        if(AuthHelper::getLoggedUserName()){   
+            $this->smarty->assign('username',AuthHelper::getLoggedUserName());
+        }
+        $this->smarty->assign('select', $select);
+        $this->smarty->assign('id_product', $id_product);
+        $this->smarty->display('updateProduct.tpl');
+
+    }
     
     public function showProduct($product) {
         $this->smarty->assign('page', 'Producto');

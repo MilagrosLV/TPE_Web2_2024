@@ -42,6 +42,8 @@ $ProductController = new ProductController();
     addCategory             $CategoryController->addCategory();
     addedProduct            $ProductController->addedProduct();
     addProduct              $ProductController->addProduct();
+    updateProduct           $ProductController->updateProduct();
+    updateP                 $ProductController->updateP();
     deleteProduct           $ProductController->deleteProduct($params[1]);
     deleteCategoryConfirm   $CategoryController->deleteCategoryConfirmation($params[1]);        
     deleteCategory          $CategoryController->deleteCategory($params[1]);
@@ -87,6 +89,12 @@ switch ($params[0]) {
         break;
     case 'addProduct':
         $ProductController->addProduct();
+        break;
+    case 'updateProduct':
+        $ProductController->updateProduct($params[1]);
+        break;
+    case 'updateProduct':
+        $ProductController->updateP();
         break;
     case 'deleteProduct':
         $ProductController->deleteProduct($params[1]);

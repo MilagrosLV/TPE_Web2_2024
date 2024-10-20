@@ -30,6 +30,13 @@ class CategoryModel{
         $query->execute([$category_name]);
         return $this->db->lastInsertId();
     }
+
+    public function updateCategory($category_name, $id_category){
+        $query = $this->db->prepare('UPDATE `categorias` SET `nombre_categoria`=? WHERE `id_categoria` = ?');
+        $result = $query->execute([$category_name, $id_category]);
+        return $result;   
+    }
+
     public function deleteCategoryById($id){
         $query=$this->db->prepare("DELETE from `categorias` WHERE `id_categoria`= ? ");
         $query2=$this->db->prepare("DELETE from `productos` WHERE `id_categoria`= ? ");

@@ -34,7 +34,7 @@ class ProductModel {
         return $this->db->lastInsertId();
     }
     
-    public function updateProduct($product_name, $product_price, $id_category, $id_product){
+    public function changeProduct($product_name, $product_price, $id_category, $id_product){
         $query = $this->db->prepare('UPDATE `productos` SET `nombre_producto`=?, `precio_producto`=?, `id_categoria`=? WHERE `id_producto` = ?');
         $result = $query->execute([$product_name, $product_price, $id_category, $id_product]);
         return $result;   
