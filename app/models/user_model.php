@@ -9,8 +9,8 @@ class UserModel{
     }
 
     public function getUserByName($username){
-        $query = $this->db->prepare('SELECT * FROM `usuarios` WHERE `nombre` = :nombre');
-        $query->execute([':nombre' => $username]);
+        $query = $this->db->prepare('SELECT * FROM `usuarios` WHERE `nombre` = ?');
+        $query->execute([$username]);
         return $query->fetch(PDO::FETCH_ASSOC);
     }
 

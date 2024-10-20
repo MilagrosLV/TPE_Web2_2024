@@ -32,7 +32,7 @@ class AuthHelper {
         AuthHelper::start();
         $_SESSION['time'] = time();
         $_SESSION['ID'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
+        $_SESSION['username'] = $user['nombre'];
     }
 
     public static function checkLoggedIn() {
