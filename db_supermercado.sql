@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2024 a las 01:55:45
+-- Tiempo de generación: 19-10-2024 a las 18:27:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,22 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carrito`
+-- Estructura de tabla para la tabla `categoria`
 --
 
-CREATE TABLE `carrito` (
-  `id` int(11) NOT NULL,
-  `comprador` varchar(50) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `Fecha` date NOT NULL
+CREATE TABLE `categoria` (
+  `id_categoria` int(11) NOT NULL,
+  `nombre_categoria` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `carrito`
+-- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `carrito` (`id`, `comprador`, `id_producto`, `Fecha`) VALUES
-(5, 'Marina', 1, '2024-09-12');
+INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`) VALUES
+(1, 'Alimento'),
+(6, 'Bebida'),
+(7, 'Farmacia'),
+(8, 'Limpieza');
 
 -- --------------------------------------------------------
 
@@ -48,24 +49,25 @@ INSERT INTO `carrito` (`id`, `comprador`, `id_producto`, `Fecha`) VALUES
 --
 
 CREATE TABLE `productos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `precio` double NOT NULL,
-  `categoria` varchar(50) NOT NULL
+  `id_producto` int(11) NOT NULL,
+  `nombre_producto` varchar(50) NOT NULL,
+  `precio_producto` int(10) NOT NULL,
+  `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `nombre`, `precio`, `categoria`) VALUES
-(1, 'Detergente', 1300, 'Limpieza'),
-(2, 'Pasta de dientes', 2000, 'Limpieza');
-(3, 'Lavandina', 1000, 'Limpieza');
-(4, 'Lentejas', 950, 'Alimento');
-(5, 'Arroz', 1200, 'Alimento');
-(6, 'Coca Cola', 1460, 'Bebida');
-(7, 'Curitas', 880, 'Farmacia');
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `precio_producto`, `id_categoria`) VALUES
+(1, 'Detergente', 3665, 8),
+(2, 'Pasta de dientes', 5995, 7),
+(3, 'Lavandina', 4750, 8),
+(4, 'Lentejas', 995, 1),
+(5, 'Arroz', 1250, 1),
+(6, 'Coca Cola', 1500, 6),
+(7, 'Curitas', 300, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -75,34 +77,34 @@ INSERT INTO `productos` (`id`, `nombre`, `precio`, `categoria`) VALUES
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `contraseña` varchar(50) NOT NULL
+  `contrasenia_hash` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `contraseña`) VALUES
-(1, 'Tomas', '123'),
-(2, 'webadmin', 'admin'),
-(3, 'Milagros', '765');
+INSERT INTO `usuario` (`id`, `nombre`, `contrasenia_hash`) VALUES
+(1, 'Tomas', '$2y$10$J163vglOAky8t3AB7ihSz.507YfN7yDVWrgu2/DoSzvG0dlNxq9Im'),
+(2, 'webadmin', '$2y$10$xdvIp/2SZQkHinpqckCTcu37JmOUaOORER9sXIksxz/Eo29fegd.y'),
+(3, 'Milagros', '$2y$10$r2Rf6fbW7Xe05lECwn5v0uJa3j9Yw6hc0QQ0tW/jzjtH7w1k.pLy.');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `carrito`
+-- Indices de la tabla `categoria`
 --
-ALTER TABLE `carrito`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_producto` (`id_producto`);
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`id_categoria`);
 
 --
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `id_categoria` (`id_categoria`);
 
 --
 -- Indices de la tabla `usuario`
@@ -115,16 +117,16 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `carrito`
+-- AUTO_INCREMENT de la tabla `categoria`
 --
-ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `categoria`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -137,10 +139,10 @@ ALTER TABLE `usuario`
 --
 
 --
--- Filtros para la tabla `carrito`
+-- Filtros para la tabla `productos`
 --
-ALTER TABLE `carrito`
-  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`) ON UPDATE CASCADE;
+ALTER TABLE `productos`
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
