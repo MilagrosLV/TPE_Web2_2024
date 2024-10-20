@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2024 a las 18:27:34
+-- Tiempo de generación: 21-10-2024 a las 00:11:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
+-- Estructura de tabla para la tabla `categorias`
 --
 
-CREATE TABLE `categoria` (
+CREATE TABLE `categorias` (
   `id_categoria` int(11) NOT NULL,
   `nombre_categoria` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `categoria`
+-- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`) VALUES
+INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`) VALUES
 (1, 'Alimento'),
 (6, 'Bebida'),
 (7, 'Farmacia'),
@@ -66,25 +66,26 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `precio_producto`, `i
 (4, 'Lentejas', 995, 1),
 (5, 'Arroz', 1250, 1),
 (6, 'Coca Cola', 1500, 6),
-(7, 'Curitas', 300, 7);
+(7, 'Curitas', 300, 7),
+(8, 'Bolsa', 200, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `contrasenia_hash` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `contrasenia_hash`) VALUES
+INSERT INTO `usuarios` (`id`, `nombre`, `contrasenia_hash`) VALUES
 (1, 'Tomas', '$2y$10$J163vglOAky8t3AB7ihSz.507YfN7yDVWrgu2/DoSzvG0dlNxq9Im'),
 (2, 'webadmin', '$2y$10$xdvIp/2SZQkHinpqckCTcu37JmOUaOORER9sXIksxz/Eo29fegd.y'),
 (3, 'Milagros', '$2y$10$r2Rf6fbW7Xe05lECwn5v0uJa3j9Yw6hc0QQ0tW/jzjtH7w1k.pLy.');
@@ -94,9 +95,9 @@ INSERT INTO `usuario` (`id`, `nombre`, `contrasenia_hash`) VALUES
 --
 
 --
--- Indices de la tabla `categoria`
+-- Indices de la tabla `categorias`
 --
-ALTER TABLE `categoria`
+ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
@@ -107,9 +108,9 @@ ALTER TABLE `productos`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Indices de la tabla `usuario`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -117,21 +118,21 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `categoria`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
-ALTER TABLE `categoria`
+ALTER TABLE `categorias`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -142,7 +143,7 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
