@@ -8,6 +8,7 @@ class ProductView{
     public function __construct() {
         $this->smarty = new Smarty();
     }
+    
     public function showProducts($products) {
         $this->smarty->assign('page', 'Todos los productos');
         if(AuthHelper::getLoggedUserName()){   

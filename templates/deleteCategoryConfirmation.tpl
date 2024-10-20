@@ -6,4 +6,5 @@
     <a href="{BASE_URL}deleteCategoryConfirm/{$id}">Sí, eliminar.</a>
     <a href="{BASE_URL}home">Cancelar</a>
 </div>
+
 {include file="footer.tpl"}
