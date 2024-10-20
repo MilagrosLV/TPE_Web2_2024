@@ -23,7 +23,8 @@ class CategoryModel{
     public function getProductsByCategoryID($id_category){
         $query=$this->db->prepare('SELECT * FROM `productos` INNER JOIN `categorias` on `productos`.`id_categoria`=`categorias`.`id_categoria` WHERE `categorias`.`id_categoria` = ?');
         $query->execute(array($id_category));
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        $products = $query->fetchAll(PDO::FETCH_OBJ);
+        return $products; 
     }
     public function insertCategory($category_name){
         $query = $this->db->prepare("INSERT INTO `categorias`  (`nombre_categoria`) VALUES (?)");

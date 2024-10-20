@@ -14,8 +14,6 @@
                     <li><a href='{BASE_URL}categories'>Categorías</a></li>
                     <li><a href='{BASE_URL}products'>Productos</a></li>
                     {if isset($username)}
-                        <li><a href='{BASE_URL}addedCategory'>Agregar categoría nueva</a></li>
-                        <li><a href='{BASE_URL}addedProduct'>Agregar producto en categoría</a></li>
                         <li><a href='{BASE_URL}about'>Sobre nosotres</a></li>
                         <li><a href='{BASE_URL}logout'>LogOut {$username}</a></li>
                     {else}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-10-20 15:01:07
+/* Smarty version 4.3.1, created on 2024-10-20 22:31:05
   from 'C:\xampp\htdocs\web2\TPE_Web2_2024\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6714ff13b71ee4_07008580',
+  'unifunc' => 'content_67156889af60f8_81657407',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd506f80365f74105b4f18ec7536b366f6c8eb0f8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE_Web2_2024\\templates\\header.tpl',
-      1 => 1729369704,
+      1 => 1729456260,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6714ff13b71ee4_07008580 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67156889af60f8_81657407 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
     <html lang="en">
         <head>
@@ -43,10 +43,6 @@ categories'>Categorías</a></li>
                     <li><a href='<?php echo BASE_URL;?>
 products'>Productos</a></li>
                     <?php if ((isset($_smarty_tpl->tpl_vars['username']->value))) {?>
-                        <li><a href='<?php echo BASE_URL;?>
-addedCategory'>Agregar album nuevo</a></li>
-                        <li><a href='<?php echo BASE_URL;?>
-addedProduct'>Agregar producto en categoría</a></li>
                         <li><a href='<?php echo BASE_URL;?>
 about'>Sobre nosotres</a></li>
                         <li><a href='<?php echo BASE_URL;?>

@@ -21,21 +21,23 @@ class CategoryController {
         AuthHelper::start();
         AuthHelper::checkTime();
         $categories=$this->categoryModel->getAllCategories();
+
         if((isset($categories))&&(!empty($categories))){
             $this->categoryView->showAllCategories($categories);
         }
         else{
-            $this->categoryView->showError('Error al obtener categorias');
+            $this->categoryView->showError('Error al obtener categorías');
         }
     }
+    
     public function serveOneCategoryAndProducts($id_category){
         AuthHelper::start();
         AuthHelper::checkTime();
-        $completeCategory=$this->categoryModel->getProductsByCategoryID($id_category);
+        $completeCategoryproducts=$this->categoryModel->getProductsByCategoryID($id_category);
         $category=$this->categoryModel->getOneCategory($id_category);
         $category_name=$category->name;
-        if(isset($completeCategory)&&!empty($completeCategory)){
-            $this->categoryView->showProductsByCategory($completeCategory, $id_category, $category_name);
+        if(isset($completeCategoryproducts)&&!empty($completeCategoryproducts)){
+            $this->categoryView->showProductsByCategory($completeCategoryproducts, $id_category, $category_name);
         }
         else{
             $this->categoryView->showError('Error al obtener productos de la  Cat6egoría');

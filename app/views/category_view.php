@@ -26,12 +26,12 @@ class CategoryView{
         $this->smarty->display('categories.tpl');
     }
 
-    public function showProductsByCategory($completeCategory,$id_category, $category_name){
+    public function showProductsByCategory($products,$id_category, $category_name){
         if(AuthHelper::getLoggedUserName()){   
             $this->smarty->assign('username',AuthHelper::getLoggedUserName());
         }
         $this->smarty->assign('category_name', $category_name);
-        $this->smarty->assign('completeCategory', $completeCategory);
+        $this->smarty->assign('products', $products);
         $this->smarty->assign('id_category', $id_category);
         $this->smarty->assign('page','Productos de la categoria...');
         $this->smarty->display('categoryAndProducts.tpl');
