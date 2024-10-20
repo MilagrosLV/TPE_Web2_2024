@@ -16,6 +16,7 @@ class UserController{
         AuthHelper::start();
         $this->userView->showLogin();
     }
+
     public function logout() {
         AuthHelper::logout();
         header("Location: " . BASE_URL . 'home');
@@ -30,7 +31,7 @@ class UserController{
             AuthHelper::setUser($user);
             header('Location: ' . BASE_URL . 'home');
         } else {
-            $this->userView->showLogin('logIn Incorrecto');
+            $this->userView->showLogin('LogIn Incorrecto');
         }
     }
 }

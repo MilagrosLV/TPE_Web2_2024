@@ -10,15 +10,15 @@
             <header class="navbar">
                 <h1 class="page">{$page}</h1>
                 <ul>
-                    <li><a href='{BASE_URL}home'>Home</a></li>
+                    <li><a href='{BASE_URL}home'>Hogar</a></li>
                     <li><a href='{BASE_URL}categories'>Categorías</a></li>
                     <li><a href='{BASE_URL}products'>Productos</a></li>
                     {if isset($username)}
                         <li><a href='{BASE_URL}about'>Sobre nosotres</a></li>
-                        <li><a href='{BASE_URL}logout'>LogOut {$username}</a></li>
+                        <li><a href='{BASE_URL}logout'>Abandonar Sesión {$username}</a></li>
                     {else}
                         <li><a href='{BASE_URL}about'>Sobre nosotres</a></li>
-                        <li><a href='{BASE_URL}login'>LogIn</a></li>
+                        <li><a href='{BASE_URL}login'>Iniciar Sesión</a></li>
                     {/if}
                 </ul>
             </header>

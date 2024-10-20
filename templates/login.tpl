@@ -2,7 +2,9 @@
 
 <div class="content">
     <br>
-    <div class="mensaje">{$msg}</div>
+    <div class="mensaje">
+    <h2>{$msg}</h2>
+    </div>
     <form method="post" action="verify">
         <label for="username">Usuario:</label> <br>
         <input type="text" name="username" id='username' placeholder="usuario"> <br>

@@ -35,12 +35,12 @@ class CategoryController {
         AuthHelper::checkTime();
         $completeCategoryproducts=$this->categoryModel->getProductsByCategoryID($id_category);
         $category=$this->categoryModel->getOneCategory($id_category);
-        $category_name=$category->name;
+        $category_name=$category->nombre_categoria;
         if(isset($completeCategoryproducts)&&!empty($completeCategoryproducts)){
             $this->categoryView->showProductsByCategory($completeCategoryproducts, $id_category, $category_name);
         }
         else{
-            $this->categoryView->showError('Error al obtener productos de la  Cat6egoría');
+            $this->categoryView->showError('Error al obtener productos de la  Categoría');
         }
     }
 
