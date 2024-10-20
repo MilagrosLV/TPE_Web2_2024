@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-10-21 00:54:18
+/* Smarty version 4.3.1, created on 2024-10-21 01:07:37
   from 'C:\xampp\htdocs\web2\TPE_Web2_2024\templates\addProduct.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_67158a1ae78359_67546003',
+  'unifunc' => 'content_67158d3989f986_71868845',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c03a4ddac14e921d3be0864bae6e97ff704d8e53' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE_Web2_2024\\templates\\addProduct.tpl',
-      1 => 1729464840,
+      1 => 1729465325,
       2 => 'file',
     ),
   ),
@@ -22,16 +22,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_67158a1ae78359_67546003 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67158d3989f986_71868845 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="content">
     <h1> Agrega un producto a una categoría</h1>
     <form action="addProduct" method="post">
-        <label for="productName" >Nombre del producto</label><br>
-            <input type="text" name="productName" placeholder="Inserte nombre del producto"><br>
-            <label for="productPrice" >Precio del producto</label><br>
-            <input type="text" name="productPrice" placeholder="Inserte precio del producto"><br>
+        <label for="productName">Nombre del producto</label><br>
+            <input type="text" name="productName" placeholder="Inserte nombre del producto" required><br>
+        <label for="productPrice" >Precio del producto $</label><br>
+            <input type="number" name="productPrice" placeholder="Inserte precio del producto" required><br>
         <select name="categoryId">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['select']->value, 'item');
