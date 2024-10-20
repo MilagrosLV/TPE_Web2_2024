@@ -28,23 +28,23 @@ $ProductController = new ProductController();
 
 
 /* TABLA DE ROUTEO
-    ACTION              DESTINY
-    home                $CategoryController->home();
-    login               $UserController->serveLogin();
-    verify              $UserController->verify();
-    logout              $UserController->logout();
-    categories          $CategoryController->serveAllCategories();
-    category            $CategoryController->serveProductsByCategory($params[1]);
-    products            $ProductController->serveProducts();
-    product             $ProductController->serveProduct($params[1]);
-    about               $CategoryController->about();
-    addedCategory       $CategoryController->addedCategory();
-    addCategory         $CategoryController->addCategory();
-    addedProduct        $ProductController->addedProduct();
-    addProduct          $ProductController->addProduct();
-    deleteProduct       $ProductController->deleteProduct($params[1]);
-    deletedCategory     $CategoryController->deleteCategoryConfirmation($params[1]);        
-    deleteCategory      $CategoryController->deleteCategory($params[1]);
+    ACTION                  DESTINY
+    home                    $CategoryController->home();
+    login                   $UserController->serveLogin();
+    verify                  $UserController->verify();
+    logout                  $UserController->logout();
+    categories              $CategoryController->serveAllCategories();
+    category                $CategoryController->serveProductsByCategory($params[1]);
+    products                $ProductController->serveProducts();
+    product                 $ProductController->serveProduct($params[1]);
+    about                   $CategoryController->about();
+    addedCategory           $CategoryController->addedCategory();
+    addCategory             $CategoryController->addCategory();
+    addedProduct            $ProductController->addedProduct();
+    addProduct              $ProductController->addProduct();
+    deleteProduct           $ProductController->deleteProduct($params[1]);
+    deleteCategoryConfirm   $CategoryController->deleteCategoryConfirmation($params[1]);        
+    deleteCategory          $CategoryController->deleteCategory($params[1]);
 */
 $params = explode('/', $action);
 
@@ -91,7 +91,7 @@ switch ($params[0]) {
     case 'deleteProduct':
         $ProductController->deleteProduct($params[1]);
         break;
-    case 'deletedCategory':
+    case 'deleteCategoryConfirm':
         $CategoryController->deleteCategoryConfirmation($params[1]);
         break;
     case 'deleteCategory':

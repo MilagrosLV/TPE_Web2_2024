@@ -58,8 +58,8 @@ class CategoryView{
             $this->smarty->assign('username',AuthHelper::getLoggedUserName());
         }
         $this->smarty->assign('id', $id);
-        $this->smarty->assign('page', 'Eliminar Album');
-        $this->smarty->display('deleteAlbumConfirmation.tpl');
+        $this->smarty->assign('page', 'Eliminar Categoría');
+        $this->smarty->display('deleteCategoryConfirmation.tpl');
     }
     
     public function showError($msg){

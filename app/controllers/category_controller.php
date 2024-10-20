@@ -38,7 +38,7 @@ class CategoryController {
             $this->categoryView->showProductsByCategory($completeCategory, $id_category, $category_name);
         }
         else{
-            $this->categoryView->showError('Error al obtener canciones del album');
+            $this->categoryView->showError('Error al obtener productos de la  Cat6egoría');
         }
     }
 
@@ -55,7 +55,7 @@ class CategoryController {
             header("Location: " . BASE_URL . 'categorias');
         }
         else{
-            $this->categoryView->showError('Error al insertar album');
+            $this->categoryView->showError('Error al insertar Categoría');
         }
     }
 

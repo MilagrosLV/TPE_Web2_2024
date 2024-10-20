@@ -1,6 +1,6 @@
 {include file="header.tpl"}
 <div class="content">
-    <h1> Agrega una cancion a un album</h1>
+    <h1> Agrega un producto a una categoría</h1>
     <form action="addProduct" method="post">
         <label for="productName" >Nombre del producto</label><br>
             <input type="text" name="productName" placeholder="Inserte nombre del producto"><br>
