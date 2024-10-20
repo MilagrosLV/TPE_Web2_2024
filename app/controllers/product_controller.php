@@ -69,10 +69,10 @@ class ProductController {
         $id_category=$_POST["categoryId"];
         if(isset($product_name)&&!empty($product_name)&&isset($product_price)&&!empty($product_price)&&isset($id_category)&&!empty($id_category)&&isset($id_product)&&!empty($id_product)){
             $this->ProductModel-> changeProduct($product_name, $product_price, $id_category, $id_product); 
-            header("Location: " . BASE_URL . 'products'. '/' . $id_product); 
+            header("Location: " . BASE_URL . 'category'. '/' . $id_category); 
         }
         else{
-            $this-> ProductView -> showError('No se ha podido cambiar el producto');
+            $this-> ProductView -> showError('No se ha podido editar el producto');
         }
     }
 

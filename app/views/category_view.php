@@ -34,7 +34,7 @@ class CategoryView{
         $this->smarty->assign('completeCategory', $completeCategory);
         $this->smarty->assign('id_category', $id_category);
         $this->smarty->assign('page','Productos de la categoria...');
-        $this->smarty->display('products.tpl');
+        $this->smarty->display('categoryAndProducts.tpl');
     }
 
     public function showAbout(){
@@ -51,6 +51,16 @@ class CategoryView{
         }
         $this->smarty->assign('page', 'Agregar categoría');
         $this->smarty->display('addCategory.tpl');
+    }
+
+    public function showUpdateCategory($id_category) {
+        $this->smarty->assign('page', 'Editar categoría');
+        if(AuthHelper::getLoggedUserName()){   
+            $this->smarty->assign('username',AuthHelper::getLoggedUserName());
+        }
+        $this->smarty->assign('id_category', $id_category);
+        $this->smarty->display('updateCategory.tpl');
+
     }
 
     public function showDeleteCategoryConfirmation($id){

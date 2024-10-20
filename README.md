@@ -5,7 +5,7 @@ Trabajo Practico Especial.
 + Saffarano, Tomas Alfredo.
 + Lopez Vilaclara, Milagros.
 ## Supermercado
-El objetivo de la página se centra, en facilitar el enlistamiento de los productos elegidos por el cliente para generar su compra.
+El objetivo de la página se centra, en facilitar el enlistamiento y categorización de los productos de la empresa.
 En futuras entregas, se busca desarrollar la interactividad del usuario al registrarse en la plataforma. Al mismo tiempo, habrán usuarios con acceso administrativo con una interfaz web para realizar el CRUD.
 
 ### Diagrama

@@ -84,6 +84,12 @@ switch ($params[0]) {
     case 'addCategory':
         $CategoryController->addCategory();
         break;
+    case 'updateCategory':
+        $CategoryController->updateCategory($params[1]);
+        break;
+    case 'updateC':
+        $CategoryController->updateC();
+        break;
     case 'addedProduct':
         $ProductController->addedProduct();
         break;
@@ -93,7 +99,7 @@ switch ($params[0]) {
     case 'updateProduct':
         $ProductController->updateProduct($params[1]);
         break;
-    case 'updateProduct':
+    case 'updateP':
         $ProductController->updateP();
         break;
     case 'deleteProduct':

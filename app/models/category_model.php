@@ -31,7 +31,7 @@ class CategoryModel{
         return $this->db->lastInsertId();
     }
 
-    public function updateCategory($category_name, $id_category){
+    public function changeCategory($category_name, $id_category){
         $query = $this->db->prepare('UPDATE `categorias` SET `nombre_categoria`=? WHERE `id_categoria` = ?');
         $result = $query->execute([$category_name, $id_category]);
         return $result;   
