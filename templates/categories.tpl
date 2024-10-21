@@ -2,7 +2,7 @@
 <br>
 <div class="content categories">
     {if isset($username)}
-        <li><a href='{BASE_URL}addedCategory'>Agregar categoría nueva</a></li>
+        <h2><a href='{BASE_URL}addedCategory'>Agregar categoría nueva</a></h2>
     {/if}
     <ul>
         {foreach $categories as $category}

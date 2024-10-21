@@ -86,9 +86,9 @@ switch ($params[0]) {
         break;
     case 'updateCategory':
         $CategoryController->updateCategory($params[1]);
-        break;
-    case 'updateC':
-        $CategoryController->updateC();
+        if ($params[1]=='updateC') {
+            $CategoryController->updateC();
+        }
         break;
     case 'addedProduct':
         $ProductController->addedProduct();
@@ -98,9 +98,9 @@ switch ($params[0]) {
         break;
     case 'updateProduct':
         $ProductController->updateProduct($params[1]);
-        break;
-    case 'updateP':
-        $ProductController->updateP();
+        if ($params[1]=='updateP') {
+            $ProductController->updateP();
+        }
         break;
     case 'deleteProduct':
         $ProductController->deleteProduct($params[1]);

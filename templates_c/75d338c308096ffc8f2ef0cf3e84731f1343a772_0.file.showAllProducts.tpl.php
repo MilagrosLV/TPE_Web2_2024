@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-10-21 00:56:18
+/* Smarty version 4.3.1, created on 2024-10-21 01:35:20
   from 'C:\xampp\htdocs\web2\TPE_Web2_2024\templates\showAllProducts.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_67158a920e3478_18517188',
+  'unifunc' => 'content_671593b8ad7ce9_78306089',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '75d338c308096ffc8f2ef0cf3e84731f1343a772' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE_Web2_2024\\templates\\showAllProducts.tpl',
-      1 => 1729457180,
+      1 => 1729466711,
       2 => 'file',
     ),
   ),
@@ -22,14 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_67158a920e3478_18517188 (Smarty_Internal_Template $_smarty_tpl) {
+function content_671593b8ad7ce9_78306089 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <br>
 <div class="content">
     <?php if ((isset($_smarty_tpl->tpl_vars['username']->value))) {?>
-        <li><a href='<?php echo BASE_URL;?>
-addedProduct'>Agregar producto nuevo</a></li>
+        <h2><a href='<?php echo BASE_URL;?>
+addedProduct'>Agregar producto nuevo</a></h2>
     <?php }?>
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['products']->value, 'product');

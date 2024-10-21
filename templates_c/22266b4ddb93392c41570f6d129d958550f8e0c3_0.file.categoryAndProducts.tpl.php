@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-10-21 00:55:55
+/* Smarty version 4.3.1, created on 2024-10-21 01:29:30
   from 'C:\xampp\htdocs\web2\TPE_Web2_2024\templates\categoryAndProducts.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_67158a7bbad8e1_69540047',
+  'unifunc' => 'content_6715925a097ae9_28617218',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '22266b4ddb93392c41570f6d129d958550f8e0c3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE_Web2_2024\\templates\\categoryAndProducts.tpl',
-      1 => 1729464148,
+      1 => 1729466677,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_67158a7bbad8e1_69540047 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6715925a097ae9_28617218 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <br>
@@ -48,10 +48,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 <?php if ((isset($_smarty_tpl->tpl_vars['username']->value))) {?>
     <a href="<?php echo BASE_URL;?>
 deleteCategoryConfirm/<?php echo $_smarty_tpl->tpl_vars['id_category']->value;?>
-"> Eliminar </a> 
+"> Eliminar |</a> 
     <a href="<?php echo BASE_URL;?>
 updateCategory/<?php echo $_smarty_tpl->tpl_vars['id_category']->value;?>
-"> Editar </a>   
+">| Editar </a>   
 <?php }?>
 </div>
 <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

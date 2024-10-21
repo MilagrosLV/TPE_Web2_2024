@@ -72,7 +72,7 @@ class CategoryController {
         $id_category=$_POST["categoryId"];
         if(isset($category_name)&&!empty($category_name)&&isset($id_category)&&!empty($id_category)){
             $this->categoryModel-> changeCategory($category_name, $id_category); 
-            header("Location: " . BASE_URL . 'categories'. '/' . $id_category); 
+            header('Location: ' . BASE_URL . 'categories'); 
         }
         else{
             $this-> categoryView -> showError('No se ha podido editar la categoría');

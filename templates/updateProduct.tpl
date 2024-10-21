@@ -2,7 +2,9 @@
 <div class="content">
     <h1> Edita un producto</h1>
     <form action="updateP" method="post">
-        <label for="productId" >{$id_product}</label><br>
+        <select name="productId">
+            <option value="{$id_product}">{$id_product}</option>
+        </select>
         <label for="productName" >Nombre del producto </label><br>
             <input type="text" name="productName" placeholder="Inserte nombre del producto"><br>
         <label for="productPrice" >Precio del producto </label><br>

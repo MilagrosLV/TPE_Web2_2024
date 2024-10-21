@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-10-21 00:56:16
+/* Smarty version 4.3.1, created on 2024-10-21 02:31:34
   from 'C:\xampp\htdocs\web2\TPE_Web2_2024\templates\categories.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_67158a90546753_41140966',
+  'unifunc' => 'content_6715a0e616e773_74801123',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '22e63f5dd5dcf7b660b9b31708a7aab0c90776b8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE_Web2_2024\\templates\\categories.tpl',
-      1 => 1729456236,
+      1 => 1729470404,
       2 => 'file',
     ),
   ),
@@ -22,14 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_67158a90546753_41140966 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6715a0e616e773_74801123 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <br>
 <div class="content categories">
     <?php if ((isset($_smarty_tpl->tpl_vars['username']->value))) {?>
-        <li><a href='<?php echo BASE_URL;?>
-addedCategory'>Agregar categoría nueva</a></li>
+        <h2><a href='<?php echo BASE_URL;?>
+addedCategory'>Agregar categoría nueva</a></h2>
     <?php }?>
     <ul>
         <?php

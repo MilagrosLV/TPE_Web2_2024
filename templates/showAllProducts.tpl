@@ -2,7 +2,7 @@
 <br>
 <div class="content">
     {if isset($username)}
-        <li><a href='{BASE_URL}addedProduct'>Agregar producto nuevo</a></li>
+        <h2><a href='{BASE_URL}addedProduct'>Agregar producto nuevo</a></h2>
     {/if}
     {foreach $products as $product}
         <h3 class="card-title"><a href="{BASE_URL}product/{$product->id_producto}">{$product->nombre_producto}</a></h3>
