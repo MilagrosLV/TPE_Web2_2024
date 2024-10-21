@@ -18,6 +18,10 @@ class Model {
             $r2Rf6fbW7Xe05lECwn5v0uJa3j9Yw6hc0QQ0tW = '$r2Rf6fbW7Xe05lECwn5v0uJa3j9Yw6hc0QQ0tW';
             $sql =<<<END
 
+                SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+                START TRANSACTION;
+                SET time_zone = "+00:00";
+
                 CREATE TABLE `categorias` (
                 `id_categoria` int(11) NOT NULL,
                 `nombre_categoria` varchar(50) NOT NULL
