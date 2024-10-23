@@ -7,7 +7,7 @@ $smarty->setCompileDir('templates_c');
 $smarty->setCacheDir('cache');
 //$smarty->testInstall();
 
-require_once './Model.php';
+
 
 require_once './app/controllers/category_controller.php';
 require_once './app/controllers/product_controller.php';

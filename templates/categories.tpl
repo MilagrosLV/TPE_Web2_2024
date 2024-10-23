@@ -4,11 +4,17 @@
     {if isset($username)}
         <h2><a href='{BASE_URL}addedCategory'>Agregar categoría nueva</a></h2>
     {/if}
-    <ul>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Categoría</th>
+        </tr>
         {foreach $categories as $category}
-            <li><p>Categoría nro: {$category->id_categoria}</p></li>
-            <li><a href="category/{$category->id_categoria}">{$category->nombre_categoria}</a></li>
+        <tr>
+            <td>{$category->id_categoria}</td>
+            <td><a href="category/{$category->id_categoria}">{$category->nombre_categoria}</a></td>
+        </tr>
         {/foreach}
-    </ul>
+    </table>
 </div>
 {include file="footer.tpl"}     
