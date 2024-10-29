@@ -28,23 +28,29 @@ class ProductView{
 
     }
 
-    public function showUpdateProduct($select, $id_product) {
+    public function showUpdateProduct($select, $product) {
         $this->smarty->assign('page', 'Editar un producto');
         if(AuthHelper::getLoggedUserName()){   
             $this->smarty->assign('username',AuthHelper::getLoggedUserName());
         }
         $this->smarty->assign('select', $select);
-        $this->smarty->assign('id_product', $id_product);
+        $this->smarty->assign('product', $product);
         $this->smarty->display('updateProduct.tpl');
 
     }
     
-    public function showProduct($product) {
+    public function showProduct($product, $categories) {
         $this->smarty->assign('page', 'Producto');
         if(AuthHelper::getLoggedUserName()){   
             $this->smarty->assign('username',AuthHelper::getLoggedUserName());
         }
+        foreach ($categories as $category){
+            if (($category->id_categoria)==($product->id_categoria)){
+                $item = $category;
+            }
+        }
         $this->smarty->assign('product', $product);
+        $this->smarty->assign('category', $item);
         $this->smarty->display('product.tpl');
     }
 

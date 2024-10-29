@@ -26,15 +26,25 @@ class CategoryView{
         $this->smarty->display('categories.tpl');
     }
 
-    public function showProductsByCategory($products,$id_category, $category_name){
+    public function showProductsByCategory($products, $id_category, $category_name){
         if(AuthHelper::getLoggedUserName()){   
             $this->smarty->assign('username',AuthHelper::getLoggedUserName());
         }
         $this->smarty->assign('category_name', $category_name);
         $this->smarty->assign('products', $products);
         $this->smarty->assign('id_category', $id_category);
-        $this->smarty->assign('page','Productos de la categoria...');
+        $this->smarty->assign('page','Categoría');
         $this->smarty->display('categoryAndProducts.tpl');
+    }
+
+    public function showEmptyCategory($id_category, $category_name){
+        if(AuthHelper::getLoggedUserName()){   
+            $this->smarty->assign('username',AuthHelper::getLoggedUserName());
+        }
+        $this->smarty->assign('category_name', $category_name);
+        $this->smarty->assign('id_category', $id_category);
+        $this->smarty->assign('page','Categoría');
+        $this->smarty->display('categoryEmpty.tpl');
     }
 
     public function showAbout(){
@@ -53,12 +63,12 @@ class CategoryView{
         $this->smarty->display('addCategory.tpl');
     }
 
-    public function showUpdateCategory($id_category) {
+    public function showUpdateCategory($category) {
         $this->smarty->assign('page', 'Editar categoría');
         if(AuthHelper::getLoggedUserName()){   
             $this->smarty->assign('username',AuthHelper::getLoggedUserName());
         }
-        $this->smarty->assign('id_category', $id_category);
+        $this->smarty->assign('category', $category);
         $this->smarty->display('updateCategory.tpl');
 
     }

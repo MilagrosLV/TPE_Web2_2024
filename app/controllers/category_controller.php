@@ -40,7 +40,8 @@ class CategoryController {
             $this->categoryView->showProductsByCategory($completeCategoryproducts, $id_category, $category_name);
         }
         else{
-            $this->categoryView->showError('Error al obtener productos de la  Categoría');
+            $this->categoryView->showEmptyCategory($id_category, $category_name);
+            $this->categoryView->showError('Esta Categoría no tiene productos');
         }
     }
 
@@ -63,7 +64,8 @@ class CategoryController {
 
     public function updateCategory($id_category){
         AuthHelper::checkLoggedIn();
-        $this-> categoryView -> showUpdateCategory($id_category);        
+        $category=$this->categoryModel->getOneCategory($id_category);
+        $this-> categoryView -> showUpdateCategory($category);        
     }
 
     public function updateC(){

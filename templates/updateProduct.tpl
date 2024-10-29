@@ -1,9 +1,10 @@
 {include file="header.tpl"}
+
 <div class="content">
-    <h1> Edita un producto</h1>
+    <h1> Editar producto {$product->nombre_producto}</h1>
     <form action="updateP" method="post">
         <select name="productId">
-            <option value="{$id_product}">{$id_product}</option>
+            <option value="{$product->id_producto}">{$product->id_producto}</option>
         </select>
         <label for="productName" >Nombre del producto </label><br>
             <input type="text" name="productName" placeholder="Inserte nombre del producto"><br>
@@ -17,4 +18,5 @@
         <button type="submit">Editar</button>
     </form>
 </div>
+
 {include file="footer.tpl" }

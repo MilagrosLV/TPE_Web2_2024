@@ -1,9 +1,10 @@
 {include file="header.tpl"}
 
 <div class="content">
+    <h1>Editar categoría {$category->nombre_categoria}</h1>
     <form action="updateC" method="post">
         <select name="categoryId">
-            <option value="{$id_category}">{$id_category}</option>
+            <option value="{$category->id_categoria}">{$category->id_categoria}</option>
         </select>
         <br>
         <label for="categoryName" >Nombre de la categoría: </label><br>

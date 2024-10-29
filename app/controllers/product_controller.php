@@ -23,15 +23,16 @@ class ProductController {
         }
     }
 
-    public function serveProduct($id){
+    public function serveProduct($id_product){
         AuthHelper::start();
         AuthHelper::checkTime();
-        $product = $this-> ProductModel-> getProduct($id);
-        if (isset($product)&&!empty($product)){
-            $this-> ProductView -> showProduct($product);
+        $product = $this-> ProductModel-> getProduct($id_product);
+        $categories= $this-> ProductModel-> getSelect();
+        if ((isset($product)&&!empty($product)) && (isset($categories)&&!empty($categories))){
+            $this-> ProductView -> showProduct($product, $categories);
         }
         else
-            $this-> ProductView -> showError('No hay ninguna canción para mostrar.');
+            $this-> ProductView -> showError('No hay producto para mostrar.');
 
     }
 
@@ -58,7 +59,8 @@ class ProductController {
     public function updateProduct($id_product){
         AuthHelper::checkLoggedIn();
         $select= $this-> ProductModel-> getSelect();
-        $this-> ProductView -> showUpdateProduct($select, $id_product);        
+        $product = $this-> ProductModel-> getProduct($id_product);
+        $this-> ProductView -> showUpdateProduct($select, $product);        
     }
 
     public function updateP(){

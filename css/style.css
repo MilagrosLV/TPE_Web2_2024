@@ -69,13 +69,13 @@ table, td, th {
 }
   
 table {
-    width: 50%;
+    width: 30%;
     border-collapse: collapse;
+    align-content: center;
 }
 
 .cover{
     width: 50%;
-    aspect-ratio: 3/2;
     object-fit: contain;
 }
 .page{
